@@ -22,11 +22,13 @@ declare module 'styled-components' {
         background: string;
         commandError: string;
         commandSuccess: string;
+        directory: string;
         options: {
           exit: string;
           minimize: string;
           maximize: string;
         };
+        shellDirective: string;
         result: string;
         text: string;
         time: string;

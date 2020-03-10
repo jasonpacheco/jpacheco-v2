@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const WindowContainer = styled.div`
   background-color: ${(props): string => props.theme.colors.window.background};
+  border: 1px solid #282828;
   border-radius: 0.4rem;
-  font-size: 0.8rem;
+  /* font-size: 0.8rem; */
   margin: 1rem auto;
   overflow: hidden;
   width: 95%;
@@ -12,6 +13,7 @@ export const WindowContainer = styled.div`
 export const WindowTitleBar = styled.div`
   background-color: ${(props): string =>
     props.theme.colors.window.titleBarSecondary};
+  border-bottom: 1px solid #282828;
   box-sizing: border-box;
   display: flex;
   font-family: -apple-system, Helvetica, Arial, sans-serif;
@@ -61,4 +63,6 @@ export const WindowTitleBarSpacer = styled.div`
 
 export const WindowContent = styled.div`
   padding: 0.5rem;
+  height: 50vh;
+  overflow-y: scroll;
 `;

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import HomeIcon from '../assets/home-icon.svg';
+import Query from './Query';
+import QueryNode from './queryNode.interface';
 import {
   WindowContainer,
   WindowContent,
@@ -36,21 +38,33 @@ const ShellDescription = (): JSX.Element => {
   return (
     <div>
       <p>
-        Welcome to shell@jpacheco.dev! Click here or type <pre>noshell</pre> if
-        you prefer a webpage instead of an interactive shell. Type{' '}
-        <pre>help</pre> for a list of available commands. Go forth and conquer!
+        Welcome to shell@jpacheco.dev! Click here or type <code>noshell</code>{' '}
+        if you prefer a webpage instead of an interactive shell. Type{' '}
+        <code>help</code> for a list of available commands. Go forth and
+        conquer!
       </p>
     </div>
   );
 };
 
 const Window = (): JSX.Element => {
-  const [nodeList, setNodeList] = useState([
+  const [nodeList, setNodeList] = useState<QueryNode[]>([
     {
       nodeID: 0,
-      nodeComponent: ShellDescription,
+      nodeComponent: <ShellDescription />,
     },
   ]);
+
+  const addQueryToHistory = (queryComponent: JSX.Element): void => {
+    const nextID = nodeList[nodeList.length - 1].nodeID + 1;
+
+    const node: QueryNode = {
+      nodeID: nextID,
+      nodeComponent: queryComponent,
+    };
+
+    setNodeList([...nodeList, node]);
+  };
 
   return (
     <WindowContainer>
@@ -60,9 +74,11 @@ const Window = (): JSX.Element => {
         <WindowTitleBarSpacer />
       </WindowTitleBar>
       <WindowContent>
-        {nodeList.map(node => (
-          <node.nodeComponent />
+        {nodeList.map(({ nodeID, nodeComponent }) => (
+          <Fragment key={nodeID}>{nodeComponent}</Fragment>
         ))}
+
+        <Query directory="~" addQueryToHistory={addQueryToHistory} />
       </WindowContent>
     </WindowContainer>
   );
