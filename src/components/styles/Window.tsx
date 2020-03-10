@@ -10,7 +10,7 @@ export const WindowContainer = styled.div`
   width: 95%;
 `;
 
-export const WindowTitleBar = styled.div`
+export const WindowTitleBarContainer = styled.div`
   background-color: ${(props): string =>
     props.theme.colors.window.titleBarSecondary};
   border-bottom: 1px solid #282828;

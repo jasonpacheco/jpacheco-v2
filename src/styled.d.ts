@@ -15,6 +15,7 @@ declare module 'styled-components' {
     colors: {
       site: {
         background: string;
+        code: string;
         text: string;
       };
 

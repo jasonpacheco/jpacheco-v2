@@ -23,7 +23,14 @@ const GlobalStyles = createGlobalStyle`
   a{background-color:transparent}
   abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
   b,strong{font-weight:bolder}
-  code,kbd,samp{font-family:monospace,monospace;font-size:1em}
+
+code,kbd,samp {
+  background-color: #000;
+  color: ${(props): string => props.theme.colors.site.code};
+  font-family:monospace,monospace;
+  font-size:1em;
+}
+
   small{font-size:80%}
   sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
   sub{bottom:-.25em}

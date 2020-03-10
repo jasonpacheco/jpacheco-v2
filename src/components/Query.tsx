@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import getQueryTime from '../utils/getQueryTime';
+import Help from './nodes/Help';
 import PreviousQuery from './PreviousQuery';
 import {
   QueryContainer,
@@ -70,6 +71,7 @@ const Query = ({ addQueryToHistory, directory }: QueryProps): JSX.Element => {
           value={inputValue}
         />
       </p>
+      <Help />
     </QueryContainer>
   );
 };

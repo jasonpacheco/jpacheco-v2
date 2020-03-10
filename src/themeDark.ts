@@ -8,6 +8,7 @@ export default function themeDark(): DefaultTheme {
     colors: {
       site: {
         background: '#202933',
+        code: '#99c794',
         text: '#d8dee9',
       },
       window: {
