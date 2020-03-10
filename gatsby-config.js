@@ -1,14 +1,11 @@
 const siteMetadata = {
-  name: 'Gatsby Strict Starter',
-  description:
-    'Demo for a Gatsby starter with strict linting and auto-formatting rules.',
+  name: 'jpacheco.dev',
+  description: 'Website for Jason Pacheco, React developer',
 };
 
 module.exports = {
   siteMetadata,
   plugins: [
-    'gatsby-plugin-chakra-ui',
-    'gatsby-plugin-emotion',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -19,6 +16,28 @@ module.exports = {
         icon: 'src/assets/favicon.png',
         lang: 'en-US',
         start_url: '/',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-styled-components',
+      options: {
+        displayName: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Fira Code'],
+        },
       },
     },
     'gatsby-plugin-react-helmet',

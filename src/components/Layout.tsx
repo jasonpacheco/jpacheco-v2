@@ -1,12 +1,18 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { ThemeProvider } from 'styled-components';
+
+import GlobalStyles from '../globalStyles';
+import themeDark from '../themeDark';
+import themeVariables from '../themeVariables';
+import Window from './Window';
 
 export interface LayoutProps {
   children: React.ReactNode;
 }
 
-export function Layout({ children }: LayoutProps): JSX.Element {
+export function Layout(): JSX.Element {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -26,12 +32,10 @@ export function Layout({ children }: LayoutProps): JSX.Element {
       >
         <meta name="description" content={data.site.siteMetadata.description} />
       </Helmet>
-
-      <header>{/* TODO */}</header>
-
-      <main>{children}</main>
-
-      <footer>{/* TODO */}</footer>
+      <ThemeProvider theme={themeDark}>
+        <GlobalStyles />
+        <Window />
+      </ThemeProvider>
     </React.StrictMode>
   );
 }
