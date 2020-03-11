@@ -1,13 +1,13 @@
 import React from 'react';
 
-import HomeIcon from '../assets/home-icon.svg';
+import HomeIcon from '../../assets/home-icon.svg';
 import {
   WindowOptionCircle,
   WindowOptionsContainer,
   WindowTitleBarContainer,
   WindowTitleBarSpacer,
   WindowTitleContainer,
-} from './styles/Window';
+} from '../styles/Window';
 
 const WindowOptions = (): JSX.Element => {
   return (

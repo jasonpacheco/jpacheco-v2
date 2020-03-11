@@ -1,7 +1,6 @@
 import React from 'react';
 
 import commandList from '../../utils/commandList';
-
 // interface HelpProps {}
 
 const Help = (): JSX.Element => {

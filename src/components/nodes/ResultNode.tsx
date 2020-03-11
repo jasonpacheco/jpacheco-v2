@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ValidationResult } from '../utils/validateInput';
+import { ValidationResult } from '../../utils/validateInput';
 
 interface ResultNodeProps {
   data: ValidationResult;

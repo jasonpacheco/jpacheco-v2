@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 
-import validateInput from '../utils/validateInput';
-import useHistoryContext from './contextHooks/useHistoryContext';
-import PreviousQuery from './PreviousQuery';
-import ResultNode from './ResultNode';
+import useHistoryContext from '../../contextHooks/useHistoryContext';
+import validateInput from '../../utils/validateInput';
+import ResultNode from '../Nodes/ResultNode';
 import {
   QueryContainer,
   QueryDirectory,
   QueryInput,
   QueryShellDirective,
   QueryTime,
-} from './styles/Query';
+} from '../styles/Query';
+import PreviousQuery from './PreviousQuery';
 
 const KEY_ENTER = 13;
 

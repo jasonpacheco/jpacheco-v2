@@ -2,9 +2,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
+import HistoryState from '../contextHooks/state/historyState';
+import ThemeState from '../contextHooks/state/themeState';
 import AppMount from './AppMount';
-import ThemeState from './contextHooks/state/themeState';
-import HistoryState from './contextHooks/state/historyState';
 
 export interface LayoutProps {
   children: React.ReactNode;
@@ -31,10 +31,9 @@ export function Layout(): JSX.Element {
         <meta name="description" content={data.site.siteMetadata.description} />
       </Helmet>
       <HistoryState>
-
-      <ThemeState>
-        <AppMount />
-      </ThemeState>
+        <ThemeState>
+          <AppMount />
+        </ThemeState>
       </HistoryState>
     </React.StrictMode>
   );

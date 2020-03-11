@@ -5,7 +5,7 @@ import {
   QueryDirectory,
   QueryShellDirective,
   QueryTime,
-} from './styles/Query';
+} from '../styles/Query';
 
 interface PreviousQueryProps {
   command: string;

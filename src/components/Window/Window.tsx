@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 
-import getQueryTime from '../utils/getQueryTime';
-import useHistoryContext from './contextHooks/useHistoryContext';
-import Query from './Query';
-import { WindowContainer, WindowContent } from './styles/Window';
+import useHistoryContext from '../../contextHooks/useHistoryContext';
+import getQueryTime from '../../utils/getQueryTime';
+import Query from '../Query/Query';
+import { WindowContainer, WindowContent } from '../styles/Window';
 import WindowTitleBar from './WindowTitleBar';
 
 const Window = (): JSX.Element => {
