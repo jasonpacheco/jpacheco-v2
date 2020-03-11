@@ -13,8 +13,8 @@ export default function themeDark(): DefaultTheme {
       },
       window: {
         background: '#1b2b34',
-        commandError: '',
-        commandSuccess: '',
+        commandError: '#ec5f67',
+        commandSuccess: '#99c794',
         directory: '#6699cc',
         options: {
           exit: '#ed655a',

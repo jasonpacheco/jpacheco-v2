@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
+import getQueryTime from '../utils/getQueryTime';
 import ShellDescription from './nodes/ShellDescription';
 import Query from './Query';
 import QueryNode from './queryNode.interface';
@@ -33,7 +34,11 @@ const Window = (): JSX.Element => {
           <Fragment key={nodeID}>{nodeComponent}</Fragment>
         ))}
 
-        <Query directory="~" addQueryToHistory={addQueryToHistory} />
+        <Query
+          directory="~"
+          addQueryToHistory={addQueryToHistory}
+          queryTime={getQueryTime()}
+        />
       </WindowContent>
     </WindowContainer>
   );

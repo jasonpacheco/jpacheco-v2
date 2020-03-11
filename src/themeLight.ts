@@ -8,6 +8,7 @@ export default function themeLight(): DefaultTheme {
     colors: {
       site: {
         background: '',
+        code: '',
         text: '',
       },
       window: {

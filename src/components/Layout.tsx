@@ -1,12 +1,9 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { ThemeProvider } from 'styled-components';
 
-import GlobalStyles from '../globalStyles';
-import themeDark from '../themeDark';
-import themeVariables from '../themeVariables';
-import Window from './Window';
+import AppMount from './AppMount';
+import ThemeState from './contextHooks/state/themeState';
 
 export interface LayoutProps {
   children: React.ReactNode;
@@ -32,10 +29,9 @@ export function Layout(): JSX.Element {
       >
         <meta name="description" content={data.site.siteMetadata.description} />
       </Helmet>
-      <ThemeProvider theme={themeDark}>
-        <GlobalStyles />
-        <Window />
-      </ThemeProvider>
+      <ThemeState>
+        <AppMount />
+      </ThemeState>
     </React.StrictMode>
   );
 }

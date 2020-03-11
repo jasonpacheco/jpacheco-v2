@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import getQueryTime from '../utils/getQueryTime';
-import Help from './nodes/Help';
+import validateInput from '../utils/validateInput';
 import PreviousQuery from './PreviousQuery';
+import ResultNode from './ResultNode';
 import {
   QueryContainer,
   QueryDirectory,
@@ -11,25 +11,37 @@ import {
   QueryTime,
 } from './styles/Query';
 
+const KEY_ENTER = 13;
+
 interface QueryProps {
   addQueryToHistory: (queryComponent: JSX.Element) => void;
   directory: string;
+  queryTime: string;
 }
 
-const Query = ({ addQueryToHistory, directory }: QueryProps): JSX.Element => {
-  const [queryTime, setQueryTime] = useState('');
-  const [isEnterPressed, setIsEnterPressed] = useState(true);
-  const [inputValue, setInputValue] = useState('');
-
-  useEffect(() => {
-    if (isEnterPressed) {
-      setQueryTime(getQueryTime());
-      setIsEnterPressed(false);
-    }
-  }, [isEnterPressed]);
+const Query = ({
+  addQueryToHistory,
+  directory,
+  queryTime,
+}: QueryProps): JSX.Element => {
+  const [state, setState] = useState({
+    commandName: '',
+    inputValue: '',
+    isValidCommand: false,
+    remainingQuery: '',
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setInputValue(e.target.value);
+    const rawInput = e.target.value;
+    const result = validateInput(rawInput);
+
+    setState({
+      ...state,
+      commandName: result.commandName,
+      inputValue: rawInput,
+      isValidCommand: result.isValidCommand,
+      remainingQuery: result.remainingQuery,
+    });
   };
 
   const handleKeyPress = (
@@ -38,41 +50,58 @@ const Query = ({ addQueryToHistory, directory }: QueryProps): JSX.Element => {
     directoryName: string,
     timeOfQuery: string,
   ): void => {
-    e.preventDefault();
-    if (e.key === 'Enter') {
-      setIsEnterPressed(true);
+    if (e.keyCode === KEY_ENTER) {
+      e.preventDefault();
       const queryComponent: JSX.Element = (
-        <PreviousQuery
-          command={command}
-          directory={directoryName}
-          time={timeOfQuery}
-        />
+        <>
+          <PreviousQuery
+            command={command}
+            directory={directoryName}
+            time={timeOfQuery}
+          />
+          <ResultNode
+            data={{
+              commandName: state.commandName,
+              isValidCommand: state.isValidCommand,
+              remainingQuery: state.remainingQuery,
+            }}
+          />
+        </>
       );
       addQueryToHistory(queryComponent);
-      setInputValue('');
+      setState({
+        ...state,
+        commandName: '',
+        inputValue: '',
+        isValidCommand: false,
+        remainingQuery: '',
+      });
     }
   };
 
   return (
-    <QueryContainer>
-      <p>
-        <QueryTime>{queryTime}</QueryTime> in{' '}
-        <QueryDirectory>{directory}</QueryDirectory>
-      </p>
-      <p>
-        <QueryShellDirective>@shell::</QueryShellDirective>
-        <QueryInput
-          onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
-            handleChange(e)
-          }
-          onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>): void =>
-            handleKeyPress(e, inputValue, directory, queryTime)
-          }
-          value={inputValue}
-        />
-      </p>
-      <Help />
-    </QueryContainer>
+    <>
+      <QueryContainer>
+        <p>
+          <QueryTime>{queryTime}</QueryTime> in{' '}
+          <QueryDirectory>{directory}</QueryDirectory>
+        </p>
+        <p className="query__input">
+          <QueryShellDirective>@shell::</QueryShellDirective>
+
+          <QueryInput
+            isValidCommand={state.isValidCommand}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
+              handleChange(e)
+            }
+            onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>): void =>
+              handleKeyPress(e, state.inputValue, directory, queryTime)
+            }
+            value={state.inputValue}
+          />
+        </p>
+      </QueryContainer>
+    </>
   );
 };
 

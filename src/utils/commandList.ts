@@ -1,4 +1,10 @@
-const commandList = [
+export interface CommandInterface {
+  id: number;
+  commandName: string;
+  helpDescription: string;
+}
+
+const commandList: CommandInterface[] = [
   {
     id: 0,
     commandName: 'cd',
