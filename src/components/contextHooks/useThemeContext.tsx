@@ -7,7 +7,7 @@ const useThemeContext = (): ThemeContextInterface => {
   const ctx = useContext(themeContext);
 
   if (ctx === undefined) {
-    throw new Error('useContext is undefined');
+    throw new Error('useThemeContext is undefined');
   }
 
   return ctx;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import validateInput from '../utils/validateInput';
+import useHistoryContext from './contextHooks/useHistoryContext';
 import PreviousQuery from './PreviousQuery';
 import ResultNode from './ResultNode';
 import {
@@ -14,16 +15,12 @@ import {
 const KEY_ENTER = 13;
 
 interface QueryProps {
-  addQueryToHistory: (queryComponent: JSX.Element) => void;
   directory: string;
   queryTime: string;
 }
 
-const Query = ({
-  addQueryToHistory,
-  directory,
-  queryTime,
-}: QueryProps): JSX.Element => {
+const Query = ({ directory, queryTime }: QueryProps): JSX.Element => {
+  const { addQueryResult } = useHistoryContext();
   const [state, setState] = useState({
     commandName: '',
     inputValue: '',
@@ -68,7 +65,7 @@ const Query = ({
           />
         </>
       );
-      addQueryToHistory(queryComponent);
+      addQueryResult(queryComponent);
       setState({
         ...state,
         commandName: '',

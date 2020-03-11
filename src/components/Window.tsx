@@ -1,30 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 
 import getQueryTime from '../utils/getQueryTime';
-import ShellDescription from './nodes/ShellDescription';
+import useHistoryContext from './contextHooks/useHistoryContext';
 import Query from './Query';
-import QueryNode from './queryNode.interface';
 import { WindowContainer, WindowContent } from './styles/Window';
 import WindowTitleBar from './WindowTitleBar';
 
 const Window = (): JSX.Element => {
-  const [nodeList, setNodeList] = useState<QueryNode[]>([
-    {
-      nodeID: 0,
-      nodeComponent: <ShellDescription />,
-    },
-  ]);
-
-  const addQueryToHistory = (queryComponent: JSX.Element): void => {
-    const nextID = nodeList[nodeList.length - 1].nodeID + 1;
-
-    const node: QueryNode = {
-      nodeID: nextID,
-      nodeComponent: queryComponent,
-    };
-
-    setNodeList([...nodeList, node]);
-  };
+  const { nodeList } = useHistoryContext();
 
   return (
     <WindowContainer>
@@ -34,11 +17,7 @@ const Window = (): JSX.Element => {
           <Fragment key={nodeID}>{nodeComponent}</Fragment>
         ))}
 
-        <Query
-          directory="~"
-          addQueryToHistory={addQueryToHistory}
-          queryTime={getQueryTime()}
-        />
+        <Query directory="~" queryTime={getQueryTime()} />
       </WindowContent>
     </WindowContainer>
   );
