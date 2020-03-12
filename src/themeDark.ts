@@ -9,10 +9,12 @@ export default function themeDark(): DefaultTheme {
       site: {
         background: '#202933',
         code: '#99c794',
+        codeBackground: '#000000',
         text: '#d8dee9',
       },
       window: {
         background: '#1b2b34',
+        border: '#282828',
         commandError: '#ec5f67',
         commandSuccess: '#99c794',
         directory: '#6699cc',
@@ -25,8 +27,8 @@ export default function themeDark(): DefaultTheme {
         shellDirective: '#ec5f67',
         text: '#a7adba',
         time: '#fac863',
-        titleBarPrimary: '#202124',
-        titleBarSecondary: '#35363a',
+        titleBarPrimary: '#35363a',
+        titleBarSecondary: '#202124',
       },
     },
   };

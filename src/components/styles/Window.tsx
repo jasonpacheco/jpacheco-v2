@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const WindowContainer = styled.div`
   background-color: ${(props): string => props.theme.colors.window.background};
-  border: 1px solid #282828;
+  border: 1px solid ${(props): string => props.theme.colors.window.border};
   border-radius: 0.4rem;
   /* font-size: 0.8rem; */
   margin: 1rem auto;
@@ -13,8 +13,9 @@ export const WindowContainer = styled.div`
 
 export const WindowTitleBarContainer = styled.div`
   background-color: ${(props): string =>
-    props.theme.colors.window.titleBarSecondary};
-  border-bottom: 1px solid #282828;
+    props.theme.colors.window.titleBarPrimary};
+  border-bottom: 1px solid
+    ${(props): string => props.theme.colors.window.border};
   box-sizing: border-box;
   display: flex;
   font-family: -apple-system, Helvetica, Arial, sans-serif;

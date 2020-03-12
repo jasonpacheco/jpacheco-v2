@@ -25,7 +25,8 @@ const GlobalStyles = createGlobalStyle`
   b,strong{font-weight:bolder}
 
 code,kbd,samp {
-  background-color: #000;
+  background-color: ${(props): string =>
+    props.theme.colors.site.codeBackground};
   color: ${(props): string => props.theme.colors.site.code};
   font-family:monospace,monospace;
   font-size:1em;

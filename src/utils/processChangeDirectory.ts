@@ -42,6 +42,16 @@ export default function processChangeDirectory(
   } else if (dir === '.') {
     return '';
   } else {
+    const firstSlash = dir.indexOf('/');
+    const firstDir = dir.slice(0, firstSlash);
+    if (childDirectories.includes(firstDir)) {
+      const newDirectory = `${currentDirectory}/${dir}`;
+      const result = getChildDirectories(newDirectory);
+      if (result.length === 0) return `cd: ${dir} is not a valid directory`;
+      changeDirectory(newDirectory, result);
+      return '';
+    }
+
     return `cd: ${dir} is not a valid directory`;
   }
   return '';

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import useDirectoryContext from '../../contextHooks/useDirectoryContext';
 import useHistoryContext from '../../contextHooks/useHistoryContext';
+import useThemeContext from '../../contextHooks/useThemeContext';
 import processChangeDirectory from '../../utils/processChangeDirectory';
 import DirectoryChildren from './DirectoryChildren';
 import Help from './Help';
@@ -20,6 +21,7 @@ const runCommand = (
   changeDirectory: (directory: string, childDirectories: string[]) => void,
   childDirectories: string[],
   currentDirectory: string,
+  switchTheme: () => void,
 ): JSX.Element => {
   const commandArguments = remainingQuery.split(' ');
 
@@ -47,6 +49,9 @@ const runCommand = (
       );
     case 'help':
       return <Help />;
+    case 'lights':
+      switchTheme();
+      return <></>;
     default:
       return <></>;
   }
@@ -60,9 +65,11 @@ export default function CommandRunner({
 }: CommandRunnerProps): JSX.Element {
   const { clearHistory } = useHistoryContext();
   const { changeDirectory } = useDirectoryContext();
+  const { switchTheme } = useThemeContext();
+  const [resultJSX, setResultJSX] = useState(<></>);
 
-  return React.useMemo(
-    () =>
+  useEffect(() => {
+    setResultJSX(
       runCommand(
         command,
         remainingQuery,
@@ -70,8 +77,26 @@ export default function CommandRunner({
         changeDirectory,
         childDirectories,
         currentDirectory,
+        switchTheme,
       ),
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [command, childDirectories],
-  );
+  }, []);
+
+  // return React.useMemo(
+  //   () =>
+  //     runCommand(
+  //       command,
+  //       remainingQuery,
+  //       clearHistory,
+  //       changeDirectory,
+  //       childDirectories,
+  //       currentDirectory,
+  //       switchTheme,
+  //     ),
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [command, childDirectories],
+  // );
+
+  return resultJSX;
 }

@@ -8,7 +8,10 @@ export interface ValidationResult {
 }
 
 export default function validateInput(rawQuery: string): ValidationResult {
-  const query = rawQuery.slice().trim();
+  const query = rawQuery
+    .slice()
+    .trim()
+    .toLowerCase();
   const firstSpace = query.indexOf(' ');
 
   if (firstSpace === -1) {

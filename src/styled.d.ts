@@ -16,11 +16,13 @@ declare module 'styled-components' {
       site: {
         background: string;
         code: string;
+        codeBackground: string;
         text: string;
       };
 
       window: {
         background: string;
+        border: string;
         commandError: string;
         commandSuccess: string;
         directory: string;
