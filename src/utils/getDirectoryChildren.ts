@@ -14,11 +14,16 @@ export default function getDirectoryChildren(
   while (relativePathIndex < relativePathsCount) {
     const currentRelativePath = relativePaths[relativePathIndex];
 
-    if (currentDirectoryNode.fullPath === currentFullPath) {
+    if (
+      currentDirectoryNode.fullPath === currentFullPath &&
+      currentDirectoryNode.type === 'directory'
+    ) {
       return currentDirectoryNode.children;
     }
+
     if (currentDirectoryNode.relativePath === currentRelativePath) {
       currentDirectoryNodeChildren = currentDirectoryNode.children;
+      [currentDirectoryNode] = currentDirectoryNodeChildren;
       relativePathIndex += 1;
     } else {
       const findDirectoryResult = currentDirectoryNodeChildren.find(
@@ -30,8 +35,7 @@ export default function getDirectoryChildren(
       if (findDirectoryResult) {
         currentDirectoryNode = { ...findDirectoryResult };
       } else {
-        currentDirectoryNodeChildren = [];
-        break;
+        return [];
       }
     }
   }

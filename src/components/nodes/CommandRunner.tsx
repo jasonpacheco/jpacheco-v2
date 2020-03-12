@@ -72,6 +72,6 @@ export default function CommandRunner({
         currentDirectory,
       ),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [command],
+    [command, childDirectories],
   );
 }
