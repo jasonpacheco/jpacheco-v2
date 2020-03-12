@@ -52,50 +52,6 @@ const sitemap: DirectoryNode = {
               type: 'node',
               children: [],
             },
-            {
-              fullPath: '~/projects/onitama/yama.tsx',
-              relativePath: 'yama.tsx',
-              type: 'node',
-              children: [],
-            },
-            {
-              fullPath: '~/projects/onitama/wama.tsx',
-              relativePath: 'wama.tsx',
-              type: 'node',
-              children: [],
-            },
-            {
-              fullPath: '~/projects/onitama/oni',
-              relativePath: 'oni',
-              type: 'directory',
-              children: [
-                {
-                  fullPath: '~/projects/onitama/oni/ta',
-                  relativePath: 'ta.tsx',
-                  type: 'node',
-                  children: [],
-                },
-                {
-                  fullPath: '~/projects/onitama/oni/ta',
-                  relativePath: 'ta',
-                  type: 'directory',
-                  children: [
-                    {
-                      fullPath: '~/projects/onitama/oni/ta/ma.tsx',
-                      relativePath: 'ma.tsx',
-                      type: 'node',
-                      children: [],
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              fullPath: '~/projects/onitama/onima.tsx',
-              relativePath: 'onima.tsx',
-              type: 'node',
-              children: [],
-            },
           ],
         },
       ],

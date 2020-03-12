@@ -6,18 +6,13 @@ import {
   QueryShellDirective,
   QueryTime,
 } from '../styles/Query';
+import { PreviousQueryProps } from './query.interface';
 
-interface PreviousQueryProps {
-  command: string;
-  directory: string;
-  time: string;
-}
-
-const PreviousQuery = ({
-  command,
+export default function PreviousQuery({
+  query,
   directory,
   time,
-}: PreviousQueryProps): JSX.Element => {
+}: PreviousQueryProps): JSX.Element {
   return (
     <QueryContainer>
       <p>
@@ -26,10 +21,8 @@ const PreviousQuery = ({
       </p>
       <p>
         <QueryShellDirective>@shell::</QueryShellDirective>
-        {command}
+        {query}
       </p>
     </QueryContainer>
   );
-};
-
-export default PreviousQuery;
+}

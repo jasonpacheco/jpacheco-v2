@@ -17,7 +17,7 @@ const Window = (): JSX.Element => {
           <Fragment key={nodeID}>{nodeComponent}</Fragment>
         ))}
 
-        <Query directory="~" queryTime={getQueryTime()} />
+        <Query queryTime={getQueryTime()} />
       </WindowContent>
     </WindowContainer>
   );
