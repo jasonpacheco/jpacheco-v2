@@ -26,6 +26,7 @@ declare module 'styled-components' {
         commandError: string;
         commandSuccess: string;
         directory: string;
+        file: string;
         options: {
           exit: string;
           minimize: string;

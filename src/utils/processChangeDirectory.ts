@@ -5,27 +5,38 @@ const getChildDirectories = (dir: string): string[] =>
   getDirectoryChildren(sitemap, dir).map(node => node.relativePath);
 
 export default function processChangeDirectory(
-  changeDirectory: (directory: string, childDirectories: string[]) => void,
+  commandName: string,
   childDirectories: string[],
   commandArguments: string[],
   currentDirectory: string,
-): string {
+  changeDirectory?: (directory: string, childDirectories: string[]) => void,
+): string | string[] {
   if (commandArguments.length > 1)
-    return 'cd: Too many arguments for cd command';
+    return `${commandName}: Too many arguments for ${commandName} command`;
   let dir = commandArguments[0];
   if (dir.endsWith('/')) dir = dir.slice(0, dir.lastIndexOf('/'));
 
   if (dir.startsWith('~')) {
     const result = getChildDirectories(dir);
-    if (result.length === 0) return `cd: ${dir} is not a valid directory`;
-    changeDirectory(dir, result);
+    if (result.length === 0)
+      return `${commandName}: ${dir} is not a valid directory`;
+    if (changeDirectory) {
+      changeDirectory(dir, result);
+    }
   } else if (childDirectories.includes(dir)) {
     const newDirectory = `${currentDirectory}/${dir}`;
     const result = getChildDirectories(newDirectory);
-    if (result.length === 0) return `cd: ${dir} is not a valid directory`;
-    changeDirectory(newDirectory, result);
+    if (result.length === 0)
+      return `${commandName}: ${dir} is not a valid directory`;
+    if (commandName === 'ls') {
+      return result;
+    }
+    if (changeDirectory) {
+      changeDirectory(newDirectory, result);
+    }
   } else if (dir.startsWith('..')) {
-    if (dir.slice(0, 3) === '...') return `cd: ${dir} is not a valid directory`;
+    if (dir.slice(0, 3) === '...')
+      return `${commandName}: ${dir} is not a valid directory`;
     if (currentDirectory === '~') return '';
     let dirCopy = dir.slice();
     let lastIndexOfDirCopy = dirCopy.lastIndexOf('/');
@@ -37,8 +48,16 @@ export default function processChangeDirectory(
       dirCopy = dirCopy.slice(0, lastIndexOfDirCopy);
       lastIndexOfDirCopy = dirCopy.lastIndexOf('/');
     }
-    if (upDirectory === '') return `cd: ${dir} is not a valid directory`;
-    changeDirectory(upDirectory, getChildDirectories(upDirectory));
+    if (upDirectory === '')
+      return `${commandName}: ${dir} is not a valid directory`;
+
+    if (commandName === 'ls') {
+      return getChildDirectories(upDirectory);
+    }
+
+    if (changeDirectory) {
+      changeDirectory(upDirectory, getChildDirectories(upDirectory));
+    }
   } else if (dir === '.') {
     return '';
   } else {
@@ -47,12 +66,19 @@ export default function processChangeDirectory(
     if (childDirectories.includes(firstDir)) {
       const newDirectory = `${currentDirectory}/${dir}`;
       const result = getChildDirectories(newDirectory);
-      if (result.length === 0) return `cd: ${dir} is not a valid directory`;
-      changeDirectory(newDirectory, result);
+      if (result.length === 0)
+        return `${commandName}: ${dir} is not a valid directory`;
+
+      if (commandName === 'ls') {
+        return result;
+      }
+      if (changeDirectory) {
+        changeDirectory(newDirectory, result);
+      }
       return '';
     }
 
-    return `cd: ${dir} is not a valid directory`;
+    return `${commandName}: ${dir} is not a valid directory`;
   }
   return '';
 }

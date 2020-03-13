@@ -18,6 +18,7 @@ export default function themeLight(): DefaultTheme {
         commandError: '#ff413f',
         commandSuccess: '#1ac300',
         directory: '#0e48d5',
+        file: '#ff6382',
         options: {
           exit: '#ff4d49',
           minimize: '#ffdf41',

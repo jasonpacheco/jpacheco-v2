@@ -5,7 +5,7 @@ import { ThemeContextState } from '../interfaces/theme';
 import themeReducer from '../reducers/themeReducer';
 
 const initialState: ThemeContextState = {
-  isDarkTheme: false,
+  isDarkTheme: true,
 };
 
 type ThemeStateProps = {

@@ -18,6 +18,7 @@ export default function themeDark(): DefaultTheme {
         commandError: '#ec5f67',
         commandSuccess: '#99c794',
         directory: '#6699cc',
+        file: '#ff6382',
         options: {
           exit: '#ed655a',
           minimize: '#e1c04c',

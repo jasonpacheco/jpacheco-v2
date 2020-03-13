@@ -33,10 +33,11 @@ const runCommand = (
       return (
         <>
           {processChangeDirectory(
-            changeDirectory,
+            'cd',
             childDirectories,
             commandArguments,
             currentDirectory,
+            changeDirectory,
           )}
         </>
       );
@@ -45,6 +46,7 @@ const runCommand = (
         <DirectoryChildren
           currentFullPath={currentDirectory}
           childDirectories={childDirectories}
+          commandArguments={commandArguments}
         />
       );
     case 'help':
