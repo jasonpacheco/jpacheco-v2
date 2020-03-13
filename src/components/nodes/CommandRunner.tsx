@@ -6,6 +6,8 @@ import useThemeContext from '../../contextHooks/useThemeContext';
 import processChangeDirectory from '../../utils/processChangeDirectory';
 import DirectoryChildren from './DirectoryChildren';
 import Help from './Help';
+import Lights from './Lights';
+import WhoModal from './WhoModal';
 
 interface CommandRunnerProps {
   command: string;
@@ -22,6 +24,7 @@ const runCommand = (
   childDirectories: string[],
   currentDirectory: string,
   switchTheme: () => void,
+  isDarkTheme: boolean,
 ): JSX.Element => {
   const commandArguments = remainingQuery.split(' ');
 
@@ -52,8 +55,9 @@ const runCommand = (
     case 'help':
       return <Help />;
     case 'lights':
-      switchTheme();
-      return <></>;
+      return <Lights isDarkTheme={isDarkTheme} switchTheme={switchTheme} />;
+    case 'whoareyou':
+      return <WhoModal />;
     default:
       return <></>;
   }
@@ -67,7 +71,7 @@ export default function CommandRunner({
 }: CommandRunnerProps): JSX.Element {
   const { clearHistory } = useHistoryContext();
   const { changeDirectory } = useDirectoryContext();
-  const { switchTheme } = useThemeContext();
+  const { isDarkTheme, switchTheme } = useThemeContext();
   const [resultJSX, setResultJSX] = useState(<></>);
 
   useEffect(() => {
@@ -80,6 +84,7 @@ export default function CommandRunner({
         childDirectories,
         currentDirectory,
         switchTheme,
+        isDarkTheme,
       ),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps

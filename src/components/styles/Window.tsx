@@ -6,9 +6,9 @@ export const WindowContainer = styled.div`
   border-radius: 0.4rem;
   /* font-size: 0.8rem; */
   margin: 1rem auto;
+  min-height: 85vh;
   overflow: hidden;
   width: 95%;
-  min-height: 85vh;
 `;
 
 export const WindowTitleBarContainer = styled.div`
@@ -64,8 +64,7 @@ export const WindowTitleBarSpacer = styled.div`
 `;
 
 export const WindowContent = styled.div`
-  padding: 0.5rem;
-
   max-height: 80vh;
-  overflow-y: scroll;
+  padding: 0.5rem;
+  overflow: scroll;
 `;

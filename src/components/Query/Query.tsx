@@ -43,7 +43,7 @@ const handleKeyPress = (
   if (e.keyCode === KEY_ENTER) {
     e.preventDefault();
     const queryComponent: JSX.Element = (
-      <>
+      <div>
         <PreviousQuery
           directory={directoryName}
           query={state.inputValue}
@@ -58,7 +58,7 @@ const handleKeyPress = (
             remainingQuery: state.remainingQuery,
           }}
         />
-      </>
+      </div>
     );
 
     dispatchers.setCommandName('');
