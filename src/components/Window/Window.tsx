@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import useHistoryContext from '../../contextHooks/useHistoryContext';
 import getQueryTime from '../../utils/getQueryTime';
@@ -21,7 +21,7 @@ const Window = (): JSX.Element => {
       <WindowTitleBar />
       <WindowContent>
         {nodeList.map(({ nodeID, nodeComponent }) => (
-          <Fragment key={nodeID}>{nodeComponent}</Fragment>
+          <div key={nodeID}>{nodeComponent}</div>
         ))}
 
         <Query queryTime={getQueryTime()} />

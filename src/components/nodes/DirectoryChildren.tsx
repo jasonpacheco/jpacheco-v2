@@ -5,6 +5,7 @@ import {
   DirectoryColor,
   FileColor,
   ListContainer,
+  ListElement,
 } from './styles/DirectoryChildren';
 
 interface DirectoryChildrenProps {
@@ -95,7 +96,7 @@ export default function DirectoryChildren({
   return errorMessage ? (
     <>{errorMessage}</>
   ) : (
-    <>
+    <div>
       <div>
         <p>
           {commandArguments[0] !== ''
@@ -127,16 +128,16 @@ export default function DirectoryChildren({
       >
         {directory.formattedDirectory.map(child => {
           return (
-            <p key={getID()}>
+            <ListElement key={getID()}>
               {child.endsWith('/') ? (
                 <DirectoryColor>{child}</DirectoryColor>
               ) : (
                 <FileColor>{child}</FileColor>
               )}
-            </p>
+            </ListElement>
           );
         })}
       </ListContainer>
-    </>
+    </div>
   );
 }

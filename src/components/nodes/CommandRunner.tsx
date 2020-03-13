@@ -85,20 +85,5 @@ export default function CommandRunner({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // return React.useMemo(
-  //   () =>
-  //     runCommand(
-  //       command,
-  //       remainingQuery,
-  //       clearHistory,
-  //       changeDirectory,
-  //       childDirectories,
-  //       currentDirectory,
-  //       switchTheme,
-  //     ),
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   [command, childDirectories],
-  // );
-
   return resultJSX;
 }

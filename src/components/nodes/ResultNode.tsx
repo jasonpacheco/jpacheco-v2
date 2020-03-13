@@ -17,7 +17,7 @@ const ResultNode = ({
   const parseInvalidCommand = (commandName: string): string =>
     commandName === '' ? '' : `@@shell: Unknown command ${commandName}`;
   return (
-    <div>
+    <>
       {data.isValidCommand ? (
         <CommandRunner
           command={data.commandName}
@@ -28,7 +28,7 @@ const ResultNode = ({
       ) : (
         parseInvalidCommand(data.commandName)
       )}
-    </div>
+    </>
   );
 };
 
