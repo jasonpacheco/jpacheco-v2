@@ -3,6 +3,7 @@ import { DirectoryNode } from './sitemap';
 export default function getDirectoryChildren(
   siteMap: DirectoryNode,
   currentFullPath: string,
+  returnFile = false,
 ): DirectoryNode[] {
   const relativePaths = currentFullPath.split('/');
   const relativePathsCount = relativePaths.length;
@@ -13,8 +14,8 @@ export default function getDirectoryChildren(
 
   while (relativePathIndex < relativePathsCount) {
     const currentRelativePath = relativePaths[relativePathIndex];
-
     if (
+      !returnFile &&
       currentDirectoryNode.fullPath === currentFullPath &&
       currentDirectoryNode.type === 'directory'
     ) {
@@ -22,6 +23,14 @@ export default function getDirectoryChildren(
     }
 
     if (currentDirectoryNode.relativePath === currentRelativePath) {
+      if (
+        returnFile &&
+        currentDirectoryNode.fullPath === currentFullPath &&
+        currentDirectoryNode.type === 'node'
+      ) {
+        return [currentDirectoryNode];
+      }
+
       currentDirectoryNodeChildren = currentDirectoryNode.children;
       [currentDirectoryNode] = currentDirectoryNodeChildren;
       relativePathIndex += 1;
@@ -40,5 +49,5 @@ export default function getDirectoryChildren(
     }
   }
 
-  return currentDirectoryNodeChildren;
+  return [];
 }

@@ -63,6 +63,36 @@ const DisplayDirectory = ({
   currentFullPath,
 }: DisplayDirectoryProps): JSX.Element => {
   if (commandArguments[0] !== '') {
+    if (commandArguments[0].startsWith('..')) {
+      if (currentFullPath === '~') return <span>~</span>;
+      let dirCopy = commandArguments[0].slice();
+      let firstIndexOfDirCopy = dirCopy.indexOf('/');
+      dirCopy = dirCopy.slice(firstIndexOfDirCopy + 1);
+
+      let lastIndexOfSlash = currentFullPath.lastIndexOf('/');
+      let upDirectory = currentFullPath.slice(0, lastIndexOfSlash);
+      let i = 0;
+      while (firstIndexOfDirCopy !== -1 && upDirectory !== '' && i < 10) {
+        if (dirCopy.startsWith('..')) {
+          lastIndexOfSlash = upDirectory.lastIndexOf('/');
+          upDirectory = upDirectory.slice(0, lastIndexOfSlash);
+          firstIndexOfDirCopy = dirCopy.indexOf('/');
+          dirCopy = dirCopy.slice(firstIndexOfDirCopy + 1);
+        } else {
+          firstIndexOfDirCopy = dirCopy.indexOf('/');
+
+          const dirCopyCopy = dirCopy.slice(
+            0,
+            firstIndexOfDirCopy === -1 ? dirCopy.length : firstIndexOfDirCopy,
+          );
+          upDirectory = `${upDirectory}/${dirCopyCopy}`;
+          dirCopy = dirCopy.slice(firstIndexOfDirCopy + 1);
+        }
+        i += 1;
+      }
+      return <span>{upDirectory}</span>;
+    }
+
     return (
       <span>
         {commandArguments[0].startsWith('~')

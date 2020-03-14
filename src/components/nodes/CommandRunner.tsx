@@ -66,6 +66,17 @@ const runCommand = (
       return <Lights isDarkTheme={isDarkTheme} switchTheme={switchTheme} />;
     case 'man':
       return <ListManPages commandArguments={commandArguments} />;
+    case 'open':
+      return (
+        <>
+          {processChangeDirectory(
+            'open',
+            childDirectories,
+            commandArguments,
+            currentDirectory,
+          )}
+        </>
+      );
     case 'whoareyou':
       return <WhoModal />;
     default:
