@@ -11,6 +11,13 @@ export default function processChangeDirectory(
   currentDirectory: string,
   changeDirectory?: (directory: string, childDirectories: string[]) => void,
 ): string | string[] {
+  if (commandArguments[0] === '') {
+    if (changeDirectory) {
+      changeDirectory('~', getChildDirectories('~'));
+    }
+    return '';
+  }
+
   if (commandArguments.length > 1)
     return `${commandName}: Too many arguments for ${commandName} command`;
   let dir = commandArguments[0];
@@ -20,6 +27,9 @@ export default function processChangeDirectory(
     const result = getChildDirectories(dir);
     if (result.length === 0)
       return `${commandName}: ${dir} is not a valid directory`;
+    if (commandName === 'ls') {
+      return result;
+    }
     if (changeDirectory) {
       changeDirectory(dir, result);
     }

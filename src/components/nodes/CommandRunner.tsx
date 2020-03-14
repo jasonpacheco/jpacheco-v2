@@ -3,11 +3,15 @@ import React, { useEffect, useState } from 'react';
 import useDirectoryContext from '../../contextHooks/useDirectoryContext';
 import useHistoryContext from '../../contextHooks/useHistoryContext';
 import useThemeContext from '../../contextHooks/useThemeContext';
+import commandList from '../../utils/commandList';
 import processChangeDirectory from '../../utils/processChangeDirectory';
-import DirectoryChildren from './DirectoryChildren';
 import Help from './Help';
 import Lights from './Lights';
+import ListDirectories from './ListDirectories/ListDirectories';
+import ListManPages from './ManualPage/ListManPages';
 import WhoModal from './WhoModal';
+
+const ARGUMENTS_LIMIT = 5;
 
 interface CommandRunnerProps {
   command: string;
@@ -28,6 +32,10 @@ const runCommand = (
 ): JSX.Element => {
   const commandArguments = remainingQuery.split(' ');
 
+  if (commandArguments.length > ARGUMENTS_LIMIT) {
+    return <>ERROR: @shell:: Too many arguments</>;
+  }
+
   switch (command) {
     case 'clear':
       clearHistory();
@@ -46,16 +54,18 @@ const runCommand = (
       );
     case 'ls':
       return (
-        <DirectoryChildren
+        <ListDirectories
           currentFullPath={currentDirectory}
           childDirectories={childDirectories}
           commandArguments={commandArguments}
         />
       );
     case 'help':
-      return <Help />;
+      return <Help commandList={commandList} />;
     case 'lights':
       return <Lights isDarkTheme={isDarkTheme} switchTheme={switchTheme} />;
+    case 'man':
+      return <ListManPages commandArguments={commandArguments} />;
     case 'whoareyou':
       return <WhoModal />;
     default:

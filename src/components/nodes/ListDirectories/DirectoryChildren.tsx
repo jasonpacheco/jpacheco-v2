@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import processChangeDirectory from '../../utils/processChangeDirectory';
+import processChangeDirectory from '../../../utils/processChangeDirectory';
 import {
   DirectoryColor,
   FileColor,
   ListContainer,
   ListElement,
-} from './styles/DirectoryChildren';
+} from '../styles/DirectoryChildren';
 
 interface DirectoryChildrenProps {
   currentFullPath: string;
@@ -54,6 +54,27 @@ const formatDirectory = (childDirectories: string[]): FormattedDirectory => {
   };
 };
 
+interface DisplayDirectoryProps {
+  commandArguments: string[];
+  currentFullPath: string;
+}
+const DisplayDirectory = ({
+  commandArguments,
+  currentFullPath,
+}: DisplayDirectoryProps): JSX.Element => {
+  if (commandArguments[0] !== '') {
+    return (
+      <span>
+        {commandArguments[0].startsWith('~')
+          ? commandArguments[0]
+          : `${currentFullPath}/${commandArguments}`}
+      </span>
+    );
+  }
+
+  return <span>{currentFullPath}</span>;
+};
+
 export default function DirectoryChildren({
   currentFullPath,
   childDirectories,
@@ -79,7 +100,6 @@ export default function DirectoryChildren({
         commandArguments,
         currentFullPath,
       );
-
       if (typeof result === 'string') setErrorMessage(result);
       else newDirectory = result;
     }
@@ -99,9 +119,10 @@ export default function DirectoryChildren({
     <div>
       <div>
         <p>
-          {commandArguments[0] !== ''
-            ? `${currentFullPath}/${commandArguments}`
-            : currentFullPath}{' '}
+          <DisplayDirectory
+            commandArguments={commandArguments}
+            currentFullPath={currentFullPath}
+          />{' '}
           contains{' '}
           {directory.directoriesCount > 0 ? (
             <>
