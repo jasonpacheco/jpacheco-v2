@@ -7,7 +7,7 @@ const getFile = (dir: string): string => {
   if (result.length === 0 || result[0] === undefined) {
     return 'open: file does not exist';
   }
-  return result[0].relativePath;
+  return result[0].fullPath;
 };
 
 const getChildDirectories = (dir: string): string[] =>
@@ -66,7 +66,7 @@ export default function processChangeDirectory(
       changeDirectory(newDirectory, result);
     }
   } else if (dir.startsWith('..')) {
-    if (dir.slice(0, 3) === '...') {
+    if (!(dir[2] === undefined || dir[2] === '/')) {
       return `${commandName}: ${dir} is not a valid ${
         commandName === 'open' ? 'file' : 'directory'
       }`;
@@ -83,7 +83,7 @@ export default function processChangeDirectory(
     let i = 0;
     while (firstIndexOfDirCopy !== -1 && upDirectory !== '' && i < 10) {
       if (dirCopy.startsWith('..')) {
-        if (dirCopy.slice(0, 3) === '...') {
+        if (!(dir[2] === undefined || dir[2] === '/')) {
           return `${commandName}: ${dir} is not a valid ${
             commandName === 'open' ? 'file' : 'directory'
           }`;

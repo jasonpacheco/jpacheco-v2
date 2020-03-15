@@ -9,6 +9,7 @@ import Help from './Help';
 import Lights from './Lights';
 import ListDirectories from './ListDirectories/ListDirectories';
 import ListManPages from './ManualPage/ListManPages';
+import OpenFile from './OpenFile';
 import WhoModal from './WhoModal';
 
 const ARGUMENTS_LIMIT = 5;
@@ -68,14 +69,11 @@ const runCommand = (
       return <ListManPages commandArguments={commandArguments} />;
     case 'open':
       return (
-        <>
-          {processChangeDirectory(
-            'open',
-            childDirectories,
-            commandArguments,
-            currentDirectory,
-          )}
-        </>
+        <OpenFile
+          childDirectories={childDirectories}
+          commandArguments={commandArguments}
+          currentDirectory={currentDirectory}
+        />
       );
     case 'whoareyou':
       return <WhoModal />;
