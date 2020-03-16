@@ -116,20 +116,20 @@ const commandList: CommandInterface[] = [
   },
   {
     id: 6,
-    commandName: 'open',
-    helpDescription: 'opens a file',
-    briefDescription: 'opens a file inside a directory',
-    usage: 'file1[, file2[, ...fileN]]',
-    fullDescription: '{cmd} will open the provided file',
-  },
-  {
-    id: 7,
     commandName: 'noshell',
     helpDescription: 'terminates shell gui and opens a default html webpage',
     briefDescription: 'displays jpacheco.dev as a normal webpage',
     usage: '',
     fullDescription:
       '{cmd} closes the shell application and displays the user a basic website',
+  },
+  {
+    id: 7,
+    commandName: 'open',
+    helpDescription: 'opens a file',
+    briefDescription: 'opens a file inside a directory',
+    usage: 'file1[, file2[, ...fileN]]',
+    fullDescription: '{cmd} will open the provided file',
   },
   {
     id: 8,

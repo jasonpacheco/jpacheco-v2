@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import processChangeDirectory from '../../../utils/processChangeDirectory';
 import {
   DirectoryColor,
   FileColor,
@@ -9,9 +8,8 @@ import {
 } from '../styles/DirectoryChildren';
 
 interface DirectoryChildrenProps {
-  currentFullPath: string;
+  parentDirectory: string;
   childDirectories: string[];
-  commandArguments: string[];
 }
 
 let keyID = 0;
@@ -54,61 +52,9 @@ const formatDirectory = (childDirectories: string[]): FormattedDirectory => {
   };
 };
 
-interface DisplayDirectoryProps {
-  commandArguments: string[];
-  currentFullPath: string;
-}
-const DisplayDirectory = ({
-  commandArguments,
-  currentFullPath,
-}: DisplayDirectoryProps): JSX.Element => {
-  if (commandArguments[0] !== '') {
-    if (commandArguments[0].startsWith('..')) {
-      if (currentFullPath === '~') return <span>~</span>;
-      let dirCopy = commandArguments[0].slice();
-      let firstIndexOfDirCopy = dirCopy.indexOf('/');
-      dirCopy = dirCopy.slice(firstIndexOfDirCopy + 1);
-
-      let lastIndexOfSlash = currentFullPath.lastIndexOf('/');
-      let upDirectory = currentFullPath.slice(0, lastIndexOfSlash);
-      let i = 0;
-      while (firstIndexOfDirCopy !== -1 && upDirectory !== '' && i < 10) {
-        if (dirCopy.startsWith('..')) {
-          lastIndexOfSlash = upDirectory.lastIndexOf('/');
-          upDirectory = upDirectory.slice(0, lastIndexOfSlash);
-          firstIndexOfDirCopy = dirCopy.indexOf('/');
-          dirCopy = dirCopy.slice(firstIndexOfDirCopy + 1);
-        } else {
-          firstIndexOfDirCopy = dirCopy.indexOf('/');
-
-          const dirCopyCopy = dirCopy.slice(
-            0,
-            firstIndexOfDirCopy === -1 ? dirCopy.length : firstIndexOfDirCopy,
-          );
-          upDirectory = `${upDirectory}/${dirCopyCopy}`;
-          dirCopy = dirCopy.slice(firstIndexOfDirCopy + 1);
-        }
-        i += 1;
-      }
-      return <span>{upDirectory}</span>;
-    }
-
-    return (
-      <span>
-        {commandArguments[0].startsWith('~')
-          ? commandArguments[0]
-          : `${currentFullPath}/${commandArguments}`}
-      </span>
-    );
-  }
-
-  return <span>{currentFullPath}</span>;
-};
-
 export default function DirectoryChildren({
-  currentFullPath,
+  parentDirectory,
   childDirectories,
-  commandArguments,
 }: DirectoryChildrenProps): JSX.Element {
   const [directory, setDirectory] = useState<FormattedDirectory>({
     filesCount: 0,
@@ -117,43 +63,15 @@ export default function DirectoryChildren({
     longestString: 0,
   });
 
-  const [errorMessage, setErrorMessage] = useState<string | undefined>(
-    undefined,
-  );
-
   useEffect(() => {
-    let newDirectory: string[] = [];
-    if (commandArguments[0] !== '') {
-      const result = processChangeDirectory(
-        'ls',
-        childDirectories,
-        commandArguments,
-        currentFullPath,
-      );
-      if (typeof result === 'string') setErrorMessage(result);
-      else newDirectory = result;
-    }
-
-    setDirectory(
-      formatDirectory(
-        commandArguments[0] !== '' && newDirectory.length > 0
-          ? newDirectory
-          : childDirectories,
-      ),
-    );
+    setDirectory(formatDirectory(childDirectories));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return errorMessage ? (
-    <>{errorMessage}</>
-  ) : (
+  return (
     <div>
       <div>
         <p>
-          <DisplayDirectory
-            commandArguments={commandArguments}
-            currentFullPath={currentFullPath}
-          />{' '}
-          contains{' '}
+          {parentDirectory} contains{' '}
           {directory.directoriesCount > 0 ? (
             <>
               <DirectoryColor>{directory.directoriesCount}</DirectoryColor>{' '}

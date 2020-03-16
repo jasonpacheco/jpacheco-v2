@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 
-import ShellDescription from '../../components/Nodes/ShellDescription';
+import ShellDescription from '../../components/nodes/ShellDescription';
 import HistoryContext from '../context/historyContext';
 import { HistoryContextState } from '../interfaces/history';
 import historyReducer from '../reducers/historyReducer';

@@ -12,7 +12,6 @@ export default (
       return {
         ...state,
         currentDirectory: action.directory,
-        childDirectories: action.childDirectories,
       };
     default:
       return state;

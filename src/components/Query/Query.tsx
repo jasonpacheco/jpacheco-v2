@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import useDirectoryContext from '../../contextHooks/useDirectoryContext';
 import useHistoryContext from '../../contextHooks/useHistoryContext';
 import validateInput from '../../utils/validateInput';
-import ResultNode from '../Nodes/ResultNode';
+import ResultNode from '../nodes/ResultNode';
 import {
   QueryContainer,
   QueryDirectory,
@@ -38,7 +38,6 @@ const handleKeyPress = (
   state: QueryState,
   dispatchers: QueryDispatchers,
   addQueryResult: (queryResult: JSX.Element) => void,
-  childDirectories: string[],
 ): void => {
   if (e.keyCode === KEY_ENTER) {
     e.preventDefault();
@@ -51,7 +50,6 @@ const handleKeyPress = (
         />
         <ResultNode
           currentDirectory={directoryName}
-          childDirectories={childDirectories}
           data={{
             commandName: state.commandName,
             isValidCommand: state.isValidCommand,
@@ -71,7 +69,7 @@ const handleKeyPress = (
 
 export default function Query({ queryTime }: QueryProps): JSX.Element {
   const { addQueryResult } = useHistoryContext();
-  const { currentDirectory, childDirectories } = useDirectoryContext();
+  const { currentDirectory } = useDirectoryContext();
   const [commandName, setCommandName] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [isValidCommand, setIsValidCommand] = useState(false);
@@ -112,7 +110,6 @@ export default function Query({ queryTime }: QueryProps): JSX.Element {
               state,
               dispatchers,
               addQueryResult,
-              childDirectories,
             )
           }
           value={inputValue}

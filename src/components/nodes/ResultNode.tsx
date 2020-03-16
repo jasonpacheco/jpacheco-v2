@@ -5,13 +5,11 @@ import CommandRunner from './CommandRunner';
 
 interface ResultNodeProps {
   currentDirectory: string;
-  childDirectories: string[];
   data: ValidationResult;
 }
 
 const ResultNode = ({
   currentDirectory,
-  childDirectories,
   data,
 }: ResultNodeProps): JSX.Element => {
   const parseInvalidCommand = (commandName: string): string =>
@@ -22,7 +20,6 @@ const ResultNode = ({
         <CommandRunner
           command={data.commandName}
           currentDirectory={currentDirectory}
-          childDirectories={childDirectories}
           remainingQuery={data.remainingQuery}
         />
       ) : (

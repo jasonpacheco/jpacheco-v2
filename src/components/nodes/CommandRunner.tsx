@@ -4,12 +4,12 @@ import useDirectoryContext from '../../contextHooks/useDirectoryContext';
 import useHistoryContext from '../../contextHooks/useHistoryContext';
 import useThemeContext from '../../contextHooks/useThemeContext';
 import commandList from '../../utils/commandList';
-import processChangeDirectory from '../../utils/processChangeDirectory';
+import { processCD } from '../../utils/processDirectory';
 import Help from './Help';
 import Lights from './Lights';
 import ListDirectories from './ListDirectories/ListDirectories';
 import ListManPages from './ManualPage/ListManPages';
-import OpenFile from './OpenFile';
+import OpenFiles from './OpenFiles/OpenFiles';
 import WhoModal from './WhoModal';
 
 const ARGUMENTS_LIMIT = 5;
@@ -17,7 +17,6 @@ const ARGUMENTS_LIMIT = 5;
 interface CommandRunnerProps {
   command: string;
   currentDirectory: string;
-  childDirectories: string[];
   remainingQuery: string;
 }
 
@@ -25,14 +24,13 @@ const runCommand = (
   command: string,
   remainingQuery: string,
   clearHistory: () => void,
-  changeDirectory: (directory: string, childDirectories: string[]) => void,
-  childDirectories: string[],
+  changeDirectory: (directory: string) => void,
   currentDirectory: string,
   switchTheme: () => void,
   isDarkTheme: boolean,
 ): JSX.Element => {
-  const commandArguments = remainingQuery.split(' ');
-
+  let commandArguments = remainingQuery.split(' ').filter(t => t !== '');
+  if (commandArguments.length === 0) commandArguments = [''];
   if (commandArguments.length > ARGUMENTS_LIMIT) {
     return <>ERROR: @shell:: Too many arguments</>;
   }
@@ -43,21 +41,12 @@ const runCommand = (
       return <></>;
     case 'cd':
       return (
-        <>
-          {processChangeDirectory(
-            'cd',
-            childDirectories,
-            commandArguments,
-            currentDirectory,
-            changeDirectory,
-          )}
-        </>
+        <>{processCD(commandArguments, currentDirectory, changeDirectory)}</>
       );
     case 'ls':
       return (
         <ListDirectories
           currentFullPath={currentDirectory}
-          childDirectories={childDirectories}
           commandArguments={commandArguments}
         />
       );
@@ -69,8 +58,7 @@ const runCommand = (
       return <ListManPages commandArguments={commandArguments} />;
     case 'open':
       return (
-        <OpenFile
-          childDirectories={childDirectories}
+        <OpenFiles
           commandArguments={commandArguments}
           currentDirectory={currentDirectory}
         />
@@ -85,7 +73,6 @@ const runCommand = (
 export default function CommandRunner({
   command,
   currentDirectory,
-  childDirectories,
   remainingQuery,
 }: CommandRunnerProps): JSX.Element {
   const { clearHistory } = useHistoryContext();
@@ -100,7 +87,6 @@ export default function CommandRunner({
         remainingQuery,
         clearHistory,
         changeDirectory,
-        childDirectories,
         currentDirectory,
         switchTheme,
         isDarkTheme,

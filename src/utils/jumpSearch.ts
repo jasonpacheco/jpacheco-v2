@@ -6,6 +6,7 @@ export default function jumpSearch(
 ): boolean {
   const totalCommands = commands.length;
   const stepInterval = Math.floor(Math.sqrt(totalCommands));
+
   let step = stepInterval;
   let prevStep = 0;
 
@@ -14,13 +15,13 @@ export default function jumpSearch(
   ) {
     prevStep = step;
     step += stepInterval;
+    // console.log(commands[])
     if (prevStep >= totalCommands) return false;
   }
 
   while (commands[prevStep].commandName < commandToSearch) {
-    prevStep += 1;
-
     if (prevStep === Math.min(step, totalCommands)) return false;
+    prevStep += 1;
   }
 
   if (commands[prevStep].commandName === commandToSearch) return true;
