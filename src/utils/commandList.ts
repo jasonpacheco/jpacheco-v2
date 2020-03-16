@@ -129,7 +129,18 @@ const commandList: CommandInterface[] = [
     helpDescription: 'opens a file',
     briefDescription: 'opens a file inside a directory',
     usage: 'file1[, file2[, ...fileN]]',
-    fullDescription: '{cmd} will open the provided file',
+    fullDescription:
+      '{cmd} will open the provided file. For each argument of {cmd} that names a file, {cmd} attempts to open the associated files. A file must to supplied to {cmd}, otherwise the prompt will return an error. If multiple arguments are given, the contents of each files will be displayed in the order the arguments were given.',
+    examples: [
+      {
+        commandUsage: 'about.tsx',
+        usageDescription: 'opens about.tsx',
+      },
+      {
+        commandUsage: '~/contact/contact.tsx ~/links/links.tsx',
+        usageDescription: "opens the files 'contact.tsx' and 'links.tsx'",
+      },
+    ],
   },
   {
     id: 8,
