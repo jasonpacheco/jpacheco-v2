@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 
 import useHistoryContext from '../../contextHooks/useHistoryContext';
 import getQueryTime from '../../utils/getQueryTime';
+import useLockBodyScroll from '../../utils/useLockBodyScroll';
 import Query from '../Query/Query';
 import { WindowContainer, WindowContent } from '../styles/Window';
 import WindowTitleBar from './WindowTitleBar';
@@ -20,7 +21,7 @@ export default function Window(): JSX.Element {
       }
     }, 50);
   }, [nodeList]);
-
+  useLockBodyScroll();
   return (
     <WindowContainer>
       <WindowTitleBar />

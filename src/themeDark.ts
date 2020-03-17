@@ -11,6 +11,8 @@ export default function themeDark(): DefaultTheme {
         code: '#99c794',
         codeBackground: '#000000',
         text: '#d8dee9',
+        link: '#0daaff',
+        linkHover: '#77cfff',
       },
       window: {
         background: '#1b2b34',

@@ -19,10 +19,12 @@ const styleCommand = (
   commandFullDescription: string,
 ): (string | JSX.Element)[] => {
   return commandFullDescription.split(' ').map((word): string | JSX.Element => {
-    if (word === '{cmd}') {
+    if (word.startsWith('{cmd}')) {
+      const rest = word.slice(word.indexOf('}') + 1);
       return (
         <span key={uuid()}>
-          <StyledCommand>{`${command}`}</StyledCommand>{' '}
+          <StyledCommand>{`${command}`}</StyledCommand>
+          {`${rest} `}
         </span>
       );
     }

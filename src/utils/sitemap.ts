@@ -11,30 +11,16 @@ const sitemap: DirectoryNode = {
   type: 'directory',
   children: [
     {
-      fullPath: '~/about',
-      relativePath: 'about',
-      type: 'directory',
-      children: [
-        {
-          fullPath: '~/about/about.tsx',
-          relativePath: 'about.tsx',
-          type: 'node',
-          children: [],
-        },
-      ],
+      fullPath: '~/about.tsx',
+      relativePath: 'about.tsx',
+      type: 'node',
+      children: [],
     },
     {
-      fullPath: '~/contact',
-      relativePath: 'contact',
-      type: 'directory',
-      children: [
-        {
-          fullPath: '~/contact/contact.tsx',
-          relativePath: 'contact.tsx',
-          type: 'node',
-          children: [],
-        },
-      ],
+      fullPath: '~/contact.tsx',
+      relativePath: 'contact.tsx',
+      type: 'node',
+      children: [],
     },
     {
       fullPath: '~/projects',
@@ -42,32 +28,18 @@ const sitemap: DirectoryNode = {
       type: 'directory',
       children: [
         {
-          fullPath: '~/projects/onitama',
-          relativePath: 'onitama',
-          type: 'directory',
-          children: [
-            {
-              fullPath: '~/projects/onitama/onitama.tsx',
-              relativePath: 'onitama.tsx',
-              type: 'node',
-              children: [],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      fullPath: '~/links',
-      relativePath: 'links',
-      type: 'directory',
-      children: [
-        {
-          fullPath: '~/links/links.tsx',
-          relativePath: 'links.tsx',
+          fullPath: '~/projects/onitama.tsx',
+          relativePath: 'onitama.tsx',
           type: 'node',
           children: [],
         },
       ],
+    },
+    {
+      fullPath: '~/links.tsx',
+      relativePath: 'links.tsx',
+      type: 'node',
+      children: [],
     },
   ],
 };

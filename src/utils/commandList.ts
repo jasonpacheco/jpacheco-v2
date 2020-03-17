@@ -144,11 +144,12 @@ const commandList: CommandInterface[] = [
   },
   {
     id: 8,
-    commandName: 'whoareyou',
-    helpDescription: 'a brief description of the developer',
-    briefDescription: 'tells you a little about me',
+    commandName: 'version',
+    helpDescription: 'gets information about the shell',
+    briefDescription: 'displays shell information',
     usage: '',
-    fullDescription: '{cmd} gives you a brief description of the developer.',
+    fullDescription:
+      '{cmd} provides information about the shell. {cmd} provides shell version, site version, a changelog, and other app information.',
   },
 ];
 

@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${(props): string => props.theme.colors.site.background};
     color: ${(props): string => props.theme.colors.site.text};
     font-family: 'Fira Code', monospace;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   main{display:block}

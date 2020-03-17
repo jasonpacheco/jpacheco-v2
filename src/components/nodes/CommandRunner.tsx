@@ -10,7 +10,7 @@ import Lights from './Lights';
 import ListDirectories from './ListDirectories/ListDirectories';
 import ListManPages from './ManualPage/ListManPages';
 import OpenFiles from './OpenFiles/OpenFiles';
-import WhoModal from './WhoModal';
+import Version from './Version';
 
 const ARGUMENTS_LIMIT = 5;
 
@@ -63,8 +63,8 @@ const runCommand = (
           currentDirectory={currentDirectory}
         />
       );
-    case 'whoareyou':
-      return <WhoModal />;
+    case 'version':
+      return <Version />;
     default:
       return <></>;
   }
