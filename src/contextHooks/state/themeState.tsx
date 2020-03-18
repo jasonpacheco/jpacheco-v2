@@ -4,8 +4,9 @@ import ThemeContext from '../context/themeContext';
 import { ThemeContextState } from '../interfaces/theme';
 import themeReducer from '../reducers/themeReducer';
 
+const varInStorage = window.localStorage.getItem('theme');
 const initialState: ThemeContextState = {
-  isDarkTheme: true,
+  isDarkTheme: varInStorage ? varInStorage === 'dark' : true,
 };
 
 type ThemeStateProps = {

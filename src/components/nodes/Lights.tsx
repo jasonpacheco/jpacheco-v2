@@ -11,6 +11,7 @@ export default function Lights({
   switchTheme,
 }: LightsProps): JSX.Element {
   useLayoutEffect(() => {
+    window.localStorage.setItem('theme', !isDarkTheme ? 'dark' : 'light');
     switchTheme();
   }, []);
 
