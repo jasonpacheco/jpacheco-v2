@@ -4,18 +4,23 @@ import DirectoryState from '../contextHooks/state/directoryState';
 import HistoryState from '../contextHooks/state/historyState';
 import ThemeState from '../contextHooks/state/themeState';
 import AppMount from './AppMount';
+import HomeLayout from './HomeLayout';
 
 export interface LayoutProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  isAppVersion: boolean;
 }
 
-export default function Layout(): JSX.Element {
+export default function Layout({
+  children,
+  isAppVersion,
+}: LayoutProps): JSX.Element {
   return (
     <React.StrictMode>
       <DirectoryState>
         <HistoryState>
           <ThemeState>
-            <AppMount />
+            {isAppVersion ? <AppMount /> : <HomeLayout>{children}</HomeLayout>}
           </ThemeState>
         </HistoryState>
       </DirectoryState>

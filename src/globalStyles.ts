@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyles = createGlobalStyle`
+interface Props {
+  changeFont?: boolean;
+}
+
+const GlobalStyles = createGlobalStyle<Props>`
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
   html {
     line-height: 1.15;
@@ -11,7 +15,10 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     background-color: ${(props): string => props.theme.colors.site.background};
     color: ${(props): string => props.theme.colors.site.text};
-    font-family: 'Fira Code', monospace;
+    font-family: ${(props): string =>
+      props.changeFont
+        ? '-apple-system, BlinkMacSystemFont, Avenir, Helvetica'
+        : "'Fira Code', monospace;"};
     font-size: 0.8rem;
   }
 

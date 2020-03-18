@@ -30,18 +30,17 @@ export default function About(): JSX.Element {
         <div>
           <h3>About the developer:</h3>
           <p>
-            I&apos;m Jason, an up-and-coming frontend developer from Santa Ana,
-            CA. My goals are simple: to create awesome and useful software!
+            I&apos;m Jason, a self-taught frontend developer with an unusual
+            background in electrical engineering and the military. My goal as a
+            developer is simple: to create awesome and useful software!
           </p>
         </div>
         <div>
-          <p>
-            <Img
-              alt="photo of developer"
-              fixed={data.me.childImageSharp.fixed}
-              imgStyle={{ borderRadius: '5px' }}
-            />
-          </p>
+          <Img
+            alt="photo of developer"
+            fixed={data.me.childImageSharp.fixed}
+            imgStyle={{ borderRadius: '5px' }}
+          />
         </div>
       </ParagraphWImage>
       <p>
@@ -52,14 +51,16 @@ export default function About(): JSX.Element {
       </p>
       <p>
         I studied electrical engineering at Stanford where I specialized in
-        image and signal processing. That&apos;s just a fancy way of saying that
-        I spent too much time in MATLAB. Too too much time.
+        image and signal processing. This is just a fancy way of saying that I
+        spent too much time in MATLAB and the realm of imaginary numbers.
       </p>
+
       <p>
         After I graduated, I joined the Marine Corps. Probably the most
         questionable decision of my life, but it was an interesting one
-        nonetheless. 5811: Can&apos;t spell CHUMP without MP, amirite?
+        nonetheless. We&apos;ll talk about it later...
       </p>
+
       <p>
         Somehow the stars aligned for me because I completed my service in the
         midst of a global pandemic and an economic downturn. On the bright side,
@@ -71,21 +72,6 @@ export default function About(): JSX.Element {
         </span>
         .
       </p>
-
-      <ParagraphWImage>
-        <p>Actual photo of me during my time in the Muhweenie Corps {'--->'}</p>
-        <p>
-          <a
-            href="https://www.youtube.com/watch?v=I7Kw8wV3oPo"
-            title="Link to youtube"
-          >
-            <Img
-              fixed={data.patrick.childImageSharp.fixed}
-              imgStyle={{ borderRadius: '5px' }}
-            />
-          </a>
-        </p>
-      </ParagraphWImage>
     </AboutContainer>
   );
 }

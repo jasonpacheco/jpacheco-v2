@@ -10,6 +10,7 @@ import Lights from './Lights';
 import ListDirectories from './ListDirectories/ListDirectories';
 import ListManPages from './ManualPage/ListManPages';
 import OpenFiles from './OpenFiles/OpenFiles';
+import RedirectShell from './RedirectShell';
 import Version from './Version';
 
 const ARGUMENTS_LIMIT = 5;
@@ -56,6 +57,8 @@ const runCommand = (
       return <Lights isDarkTheme={isDarkTheme} switchTheme={switchTheme} />;
     case 'man':
       return <ListManPages commandArguments={commandArguments} />;
+    case 'noshell':
+      return <RedirectShell />;
     case 'open':
       return (
         <OpenFiles

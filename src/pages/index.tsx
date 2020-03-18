@@ -31,7 +31,7 @@ export default function IndexPage(): JSX.Element {
         `}
         </noscript>
       </Helmet>
-      <Layout />
+      <Layout isAppVersion />
     </div>
   );
 }

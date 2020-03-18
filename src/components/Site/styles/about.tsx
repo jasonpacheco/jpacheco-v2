@@ -1,12 +1,26 @@
 import styled from 'styled-components';
 
-export const ParagraphWImage = styled.div`
+type ParagraphWImageProps = {
+  flipRight?: boolean;
+};
+
+export const ParagraphWImage = styled.div<ParagraphWImageProps>`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  flex-direction: ${(props): string =>
+    props.flipRight ? 'row-reverse' : 'row'};
+  div:first-child {
+    h3 {
+      padding: 0;
+      margin: 0 0 1rem 0;
+    }
 
-  p:last-child {
-    padding-left: 0.3rem;
+    padding: ${(props): string =>
+      props.flipRight ? '0 0 0 0.5rem' : '0 0.5rem 0 0'};
+    p {
+      margin: 0;
+    }
   }
 `;
 
