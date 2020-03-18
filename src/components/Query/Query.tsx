@@ -96,7 +96,7 @@ export default function Query({ queryTime }: QueryProps): JSX.Element {
         <QueryDirectory>{currentDirectory}</QueryDirectory>
       </p>
       <p className="query__input">
-        <QueryShellDirective>@shell::</QueryShellDirective>
+        <QueryShellDirective>&gt;&nbsp;</QueryShellDirective>
         <QueryInput
           isValidCommand={isValidCommand}
           onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>

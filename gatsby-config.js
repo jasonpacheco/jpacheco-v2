@@ -1,11 +1,11 @@
-import { join } from 'path';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require('path');
 
 const siteMetadata = {
   name: 'jpacheco.dev',
   description: 'Website for Jason Pacheco, React developer',
 };
-
-export default {
+module.exports = {
   siteMetadata,
   plugins: [
     {
@@ -50,7 +50,7 @@ export default {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'assets',
-        path: join(__dirname, 'src', 'assets'),
+        path: path.join(__dirname, 'src', 'assets'),
       },
     },
   ],

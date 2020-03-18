@@ -20,7 +20,7 @@ export const processCD = (
       return ''; // return nothing for success
     }
     const node = getNode(currentDirectory, directoryToChange);
-    if (!node) {
+    if (!node || node.type === 'node') {
       return `cd: ${directoryToChange} is not a valid directory`;
     }
     changeDirectory(node.fullPath);

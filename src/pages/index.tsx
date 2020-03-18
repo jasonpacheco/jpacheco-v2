@@ -24,6 +24,12 @@ export default function IndexPage(): JSX.Element {
       >
         <meta name="description" content={data.site.siteMetadata.description} />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <noscript>
+          {`
+
+          <meta http-equiv="refresh" content="0; url=/home" />
+        `}
+        </noscript>
       </Helmet>
       <Layout />
     </div>

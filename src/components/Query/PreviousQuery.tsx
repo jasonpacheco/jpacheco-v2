@@ -20,7 +20,7 @@ export default function PreviousQuery({
         <QueryDirectory>{directory}</QueryDirectory>
       </p>
       <p>
-        <QueryShellDirective>@shell::</QueryShellDirective>
+        <QueryShellDirective>&gt;&nbsp;</QueryShellDirective>
         {query}
       </p>
     </QueryContainer>
