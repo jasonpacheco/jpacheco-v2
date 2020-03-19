@@ -14,3 +14,14 @@ export const StyledLink = styled.a`
     text-decoration: none;
   }
 `;
+
+export const StyledInnerLink = styled.span`
+  a {
+    color: ${(props): string => props.theme.colors.site.link};
+
+    &:hover {
+      color: ${(props): string => props.theme.colors.site.linkHover};
+      text-decoration: none;
+    }
+  }
+`;

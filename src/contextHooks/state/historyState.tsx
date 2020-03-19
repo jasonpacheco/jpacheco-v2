@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 
 import ShellDescription from '../../components/nodes/ShellDescription';
+import { QueryState } from '../../components/Query/query.interface';
 import HistoryContext from '../context/historyContext';
 import { HistoryContextState } from '../interfaces/history';
 import historyReducer from '../reducers/historyReducer';
@@ -13,6 +14,7 @@ const initialState: HistoryContextState = {
       nodeComponent: <ShellDescription />,
     },
   ],
+  queryHistory: [],
 };
 
 type HistoryStateProps = {
@@ -22,10 +24,14 @@ type HistoryStateProps = {
 const HistoryState = ({ children }: HistoryStateProps): JSX.Element => {
   const [state, dispatch] = useReducer(historyReducer, initialState);
 
-  const addQueryResult = (queryResult: JSX.Element): void => {
+  const addQueryResult = (
+    queryResult: JSX.Element,
+    queryInput: QueryState,
+  ): void => {
     dispatch({
       type: 'history/addQueryResult',
       queryResult,
+      queryInput,
     });
   };
 

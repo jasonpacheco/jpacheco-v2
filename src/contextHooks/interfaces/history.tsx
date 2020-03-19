@@ -1,3 +1,5 @@
+import { QueryState } from '../../components/Query/query.interface';
+
 export interface QueryNode {
   nodeID: number;
   nodeComponent: JSX.Element;
@@ -6,11 +8,13 @@ export interface QueryNode {
 export type HistoryContextState = {
   nextID: number;
   nodeList: QueryNode[];
+  queryHistory: QueryState[];
 };
 
 interface AddHistoryAction {
   type: 'history/addQueryResult';
   queryResult: JSX.Element;
+  queryInput: QueryState;
 }
 
 interface ClearHistoryAction {
@@ -20,6 +24,6 @@ interface ClearHistoryAction {
 export type HistoryActions = AddHistoryAction | ClearHistoryAction;
 
 export interface HistoryContextInterface extends HistoryContextState {
-  addQueryResult: (queryResult: JSX.Element) => void;
+  addQueryResult: (queryResult: JSX.Element, queryInput: QueryState) => void;
   clearHistory: () => void;
 }

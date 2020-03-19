@@ -1,4 +1,7 @@
 export const KEY_ENTER = 13;
+export const KEY_UP = 38;
+export const KEY_DOWN = 40;
+export const DISPATCH_DELAY_MS = 25;
 
 export interface QueryState {
   commandName: string;
