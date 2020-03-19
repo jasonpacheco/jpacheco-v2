@@ -61,6 +61,11 @@ export const WindowTitleContainer = styled.div`
 
 export const WindowTitleBarSpacer = styled.div`
   flex: 1;
+  text-align: right;
+  & > span {
+    cursor: pointer;
+    outline: none;
+  }
 `;
 
 export const WindowContent = styled.div`

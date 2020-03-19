@@ -14,13 +14,6 @@ export default function About(): JSX.Element {
           }
         }
       }
-      patrick: file(relativePath: { eq: "weenie.jpg" }) {
-        childImageSharp {
-          fixed(height: 125, width: 125) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
     }
   `);
 
