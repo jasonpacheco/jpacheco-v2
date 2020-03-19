@@ -11,9 +11,13 @@ import WindowTitleBar from './Window/WindowTitleBar';
 
 interface HomeLayoutProps {
   children: React.ReactNode;
+  withTitle: string | undefined;
 }
 
-export default function HomeLayout({ children }: HomeLayoutProps): JSX.Element {
+export default function HomeLayout({
+  children,
+  withTitle,
+}: HomeLayoutProps): JSX.Element {
   const { isDarkTheme } = useThemeContext();
 
   return (
@@ -21,7 +25,7 @@ export default function HomeLayout({ children }: HomeLayoutProps): JSX.Element {
       <ThemeProvider theme={isDarkTheme ? themeDark : themeLight}>
         <GlobalStyles changeFont />
         <WindowContainer>
-          <WindowTitleBar />
+          <WindowTitleBar withTitle={withTitle || 'jpacheco.dev'} />
           <WindowContent>
             {children}
             <About />

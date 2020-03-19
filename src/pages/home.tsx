@@ -23,7 +23,7 @@ export default function Home(): JSX.Element {
       >
         <meta name="description" content={data.site.siteMetadata.description} />
       </Helmet>
-      <Layout isAppVersion={false}>
+      <Layout isAppVersion={false} withTitle="~/home">
         <div>
           <h1>Jason Pacheco</h1>
         </div>

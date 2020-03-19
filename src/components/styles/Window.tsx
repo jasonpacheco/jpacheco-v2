@@ -51,7 +51,7 @@ export const WindowTitleContainer = styled.div`
   text-align: center;
   & > p {
     margin: 0;
-    & > svg {
+    & > span > svg {
       height: ${(props): string => props.theme.variables.window.titleIconSize};
       margin-right: 0.2rem;
       width: ${(props): string => props.theme.variables.window.titleIconSize};

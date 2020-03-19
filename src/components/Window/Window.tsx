@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react';
 
+import useDirectoryContext from '../../contextHooks/useDirectoryContext';
 import useHistoryContext from '../../contextHooks/useHistoryContext';
 import getQueryTime from '../../utils/getQueryTime';
 import useLockBodyScroll from '../../utils/useLockBodyScroll';
@@ -9,6 +10,7 @@ import WindowTitleBar from './WindowTitleBar';
 
 export default function Window(): JSX.Element {
   const { nodeList } = useHistoryContext();
+  const { currentDirectory } = useDirectoryContext();
   const queryEndRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
@@ -24,7 +26,7 @@ export default function Window(): JSX.Element {
   useLockBodyScroll();
   return (
     <WindowContainer>
-      <WindowTitleBar />
+      <WindowTitleBar withTitle={currentDirectory} />
       <WindowContent>
         <div>
           {nodeList.map(({ nodeID, nodeComponent }) => (

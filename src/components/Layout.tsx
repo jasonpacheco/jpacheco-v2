@@ -9,18 +9,24 @@ import HomeLayout from './HomeLayout';
 export interface LayoutProps {
   children?: React.ReactNode;
   isAppVersion: boolean;
+  withTitle?: string;
 }
 
 export default function Layout({
   children,
   isAppVersion,
+  withTitle,
 }: LayoutProps): JSX.Element {
   return (
     <React.StrictMode>
       <DirectoryState>
         <HistoryState>
           <ThemeState>
-            {isAppVersion ? <AppMount /> : <HomeLayout>{children}</HomeLayout>}
+            {isAppVersion ? (
+              <AppMount />
+            ) : (
+              <HomeLayout withTitle={withTitle}>{children}</HomeLayout>
+            )}
           </ThemeState>
         </HistoryState>
       </DirectoryState>
