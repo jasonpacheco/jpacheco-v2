@@ -7,7 +7,7 @@ import { AboutContainer, ParagraphWImage } from './styles/about';
 export default function About(): JSX.Element {
   const data = useStaticQuery(graphql`
     query {
-      me: file(relativePath: { eq: "portrait.JPG" }) {
+      me: file(relativePath: { eq: "me.JPG" }) {
         childImageSharp {
           fixed(height: 125, width: 125) {
             ...GatsbyImageSharpFixed
@@ -37,33 +37,26 @@ export default function About(): JSX.Element {
         </div>
       </ParagraphWImage>
       <p>
-        As a kid, I loved firing up Notepad++ and designing small websites to
-        show off to my friends and family. However, I took a brief 15-year
-        hiatus due to conflicts of interest known as school and military
-        service.
-      </p>
-      <p>
-        I studied electrical engineering at Stanford where I specialized in
-        image and signal processing. This is just a fancy way of saying that I
-        spent too much time in MATLAB and the realm of imaginary numbers.
+        As a kid, I loved designing and creating cool little websites to show to
+        my family and friends. However, I had trouble figuring out what I wanted
+        to pursue a career in. Years later, I majored in electrical engineering
+        where I specialized in image and signal processing - which is a fancy
+        way of saying that I spent too much time in MATLAB. However, I found the
+        massive time investment in EE as not worth it to me.
       </p>
 
       <p>
-        After I graduated, I joined the Marine Corps. Probably the most
-        questionable decision of my life, but it was an interesting one
-        nonetheless. We&apos;ll talk about it later...
+        After graduation, I joined the Marine Corps and served four years a
+        military policeman in South Carolina. Unlike college, I finally had some
+        free time in the military to re-spark my interest in web development.
       </p>
 
       <p>
-        Somehow the stars aligned for me because I completed my service in the
-        midst of a global pandemic and an economic downturn. On the bright side,
-        the social distancing has worked in my favor since now I can focus on
-        writing code and working towards my goals as a self-taught frontend
-        developer{' '}
-        <span aria-label="cool" role="img">
-          😎
-        </span>
-        .
+        After making my way through the vast jungle of post-Node.js JavaScript,
+        I settled on working with React. I love how fast I can develop with
+        React and it feels the most right to me. And yes, unlike many, I like
+        JSX. So, I continue on my journey to grow my skills as a self-taught
+        developer and hopefully make a fufilling career from it.
       </p>
     </AboutContainer>
   );

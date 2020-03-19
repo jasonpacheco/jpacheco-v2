@@ -13,7 +13,7 @@ const ShellDescription = (): JSX.Element => {
         </StyledInnerLink>{' '}
         or type <code>noshell</code> if you prefer a webpage instead of an
         interactive shell. Type <code>help</code> for a list of available
-        commands. Go forth and conquer!
+        commands.
       </p>
     </div>
   );

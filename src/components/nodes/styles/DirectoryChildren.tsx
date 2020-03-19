@@ -18,8 +18,7 @@ export const ListContainer = styled.div<ListContainerProps>`
   -moz-columns: ${(props): number => props.maxColumns}
     calc(1ch * ${(props): number => props.maxWidth});
   columns: ${(props): number => props.maxColumns}
-    calc(2ch * ${(props): number => props.maxWidth});
-
+    calc(1.5ch * ${(props): number => props.maxWidth});
   @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
     display: inline-block;
     columns: ${(props): number => props.maxColumns}
