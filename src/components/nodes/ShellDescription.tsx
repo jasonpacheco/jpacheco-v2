@@ -9,14 +9,14 @@ const ShellDescription = (): JSX.Element => {
       <p>
         Welcome to the shell for{' '}
         <StyledInnerLink>
-          <Link to="/home">https://jpacheco.dev</Link>
+          <Link to="/">https://jpacheco.dev</Link>
         </StyledInnerLink>
         , the website for frontend developer, Jason Pacheco.
       </p>
       <p>
         Click{' '}
         <StyledInnerLink>
-          <Link to="/home">here</Link>
+          <Link to="/">here</Link>
         </StyledInnerLink>{' '}
         or type <code>noshell</code> if you prefer the non-interactive version
         of my site. Type <code>help</code> for a list of available commands.

@@ -13,7 +13,7 @@ const ResultNode = ({
   data,
 }: ResultNodeProps): JSX.Element => {
   const parseInvalidCommand = (commandName: string): string =>
-    commandName === '' ? '' : `@@shell: Unknown command ${commandName}`;
+    commandName === '' ? '' : `shell: Unknown command ${commandName}`;
   return (
     <>
       {data.isValidCommand ? (

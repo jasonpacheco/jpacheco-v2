@@ -31,7 +31,11 @@ export default function IndexPage(): JSX.Element {
         `}
         </noscript>
       </Helmet>
-      <Layout isAppVersion withTitle="~" />
+      <Layout withTitle="~">
+        <div>
+          <h1>Jason Pacheco</h1>
+        </div>
+      </Layout>
     </div>
   );
 }

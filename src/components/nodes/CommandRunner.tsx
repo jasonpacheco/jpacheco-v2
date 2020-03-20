@@ -33,7 +33,7 @@ const runCommand = (
   let commandArguments = remainingQuery.split(' ').filter(t => t !== '');
   if (commandArguments.length === 0) commandArguments = [''];
   if (commandArguments.length > ARGUMENTS_LIMIT) {
-    return <>ERROR: @shell:: Too many arguments</>;
+    return <>shell: Error: Too many arguments</>;
   }
 
   switch (command) {
