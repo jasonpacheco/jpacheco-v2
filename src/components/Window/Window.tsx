@@ -8,7 +8,10 @@ import Query from '../Query/Query';
 import { WindowContainer, WindowContent } from '../styles/Window';
 import WindowTitleBar from './WindowTitleBar';
 
-export default function Window(): JSX.Element {
+type WindowProps = {
+  isShell?: boolean;
+};
+export default function Window({ isShell }: WindowProps): JSX.Element {
   const { nodeList } = useHistoryContext();
   const { currentDirectory } = useDirectoryContext();
   const queryEndRef = useRef<HTMLDivElement | null>(null);
@@ -25,7 +28,7 @@ export default function Window(): JSX.Element {
   }, [nodeList]);
   useLockBodyScroll();
   return (
-    <WindowContainer>
+    <WindowContainer isShell={isShell}>
       <WindowTitleBar withTitle={currentDirectory} />
       <WindowContent>
         <div>

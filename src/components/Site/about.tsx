@@ -46,7 +46,7 @@ export default function About(): JSX.Element {
       </p>
 
       <p>
-        After graduation, I joined the Marine Corps and served four years a
+        After graduation, I joined the Marine Corps and served four years as a
         military policeman in South Carolina. Unlike college, I finally had some
         free time in the military to re-spark my interest in web development.
       </p>

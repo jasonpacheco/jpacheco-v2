@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-export const WindowContainer = styled.div`
+type WindowContainerProps = {
+  isShell?: boolean;
+};
+
+export const WindowContainer = styled.div<WindowContainerProps>`
+  ${({ isShell }): string =>
+    isShell ? 'font-family: "Fira Code", monospace' : ''};
   background-color: ${(props): string => props.theme.colors.window.background};
   border: 1px solid ${(props): string => props.theme.colors.window.border};
   transition-property: background-color, border;

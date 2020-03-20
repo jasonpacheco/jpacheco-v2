@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     background-color: ${(props): string => props.theme.colors.site.background};
     color: ${(props): string => props.theme.colors.site.text};
-    font-family:  'Fira Code', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     font-size: 0.8rem;
     transition-property: background-color, color;
     transition-duration: ${({ theme: { variables } }): string =>
