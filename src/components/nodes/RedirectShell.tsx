@@ -4,6 +4,7 @@ import React from 'react';
 export default function RedirectShell(): JSX.Element {
   React.useEffect(() => {
     setTimeout(() => {
+      window.localStorage.setItem('site', 'website');
       navigate('home');
     }, 500);
   }, []);

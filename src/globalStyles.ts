@@ -1,25 +1,25 @@
 import { createGlobalStyle } from 'styled-components';
 
-interface Props {
-  changeFont?: boolean;
-}
-
-const GlobalStyles = createGlobalStyle<Props>`
+const GlobalStyles = createGlobalStyle`
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
   html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
+
   }
 
   body {
     margin: 0;
     background-color: ${(props): string => props.theme.colors.site.background};
     color: ${(props): string => props.theme.colors.site.text};
-    font-family: ${(props): string =>
-      props.changeFont
-        ? '-apple-system, BlinkMacSystemFont, Avenir, Helvetica'
-        : "'Fira Code', monospace;"};
+    font-family:  'Fira Code', monospace;
     font-size: 0.8rem;
+    transition-property: background-color, color;
+    transition-duration: ${({ theme: { variables } }): string =>
+      `${variables.transitionSpeed}`};
+    transition-timing-function: ${({ theme: { variables } }): string =>
+      `${variables.transitionFn}`};
+
   }
 
   main{display:block}
@@ -35,6 +35,11 @@ code,kbd,samp {
   background-color: ${(props): string =>
     props.theme.colors.site.codeBackground};
   color: ${(props): string => props.theme.colors.site.code};
+  transition-property: background-color, color;
+  transition-duration: ${({ theme: { variables } }): string =>
+    `${variables.transitionSpeed}`};
+  transition-timing-function: ${({ theme: { variables } }): string =>
+    `${variables.transitionFn}`};
   font-family:monospace,monospace;
   font-size:1em;
 }

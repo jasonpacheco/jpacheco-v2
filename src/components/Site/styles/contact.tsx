@@ -15,5 +15,10 @@ export const InnerWrapper = styled(OuterWrapper)`
 export const GitColor = styled.span`
   & > svg {
     fill: ${(props): string => props.theme.colors.site.text};
+    transition-property: fill;
+    transition-duration: ${({ theme: { variables } }): string =>
+      `${variables.transitionSpeed}`};
+    transition-timing-function: ${({ theme: { variables } }): string =>
+      `${variables.transitionFn}`};
   }
 `;

@@ -27,8 +27,8 @@ const runCommand = (
   clearHistory: () => void,
   changeDirectory: (directory: string) => void,
   currentDirectory: string,
-  switchTheme: () => void,
-  isDarkTheme: boolean,
+  currentTheme: string,
+  toggleTheme: () => void,
 ): JSX.Element => {
   let commandArguments = remainingQuery.split(' ').filter(t => t !== '');
   if (commandArguments.length === 0) commandArguments = [''];
@@ -54,7 +54,7 @@ const runCommand = (
     case 'help':
       return <Help commandList={commandList} />;
     case 'lights':
-      return <Lights isDarkTheme={isDarkTheme} switchTheme={switchTheme} />;
+      return <Lights currentTheme={currentTheme} toggleTheme={toggleTheme} />;
     case 'man':
       return <ListManPages commandArguments={commandArguments} />;
     case 'noshell':
@@ -80,7 +80,7 @@ export default function CommandRunner({
 }: CommandRunnerProps): JSX.Element {
   const { clearHistory } = useHistoryContext();
   const { changeDirectory } = useDirectoryContext();
-  const { isDarkTheme, switchTheme } = useThemeContext();
+  const { currentTheme, toggleTheme } = useThemeContext();
   const [resultJSX, setResultJSX] = useState(<></>);
 
   useEffect(() => {
@@ -91,8 +91,8 @@ export default function CommandRunner({
         clearHistory,
         changeDirectory,
         currentDirectory,
-        switchTheme,
-        isDarkTheme,
+        currentTheme,
+        toggleTheme,
       ),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps

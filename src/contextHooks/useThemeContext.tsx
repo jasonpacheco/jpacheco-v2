@@ -1,16 +1,32 @@
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 
 import themeContext from './context/themeContext';
-import { ThemeContextInterface } from './interfaces/theme';
+import { ThemeContextProps } from './interfaces/theme';
 
-const useThemeContext = (): ThemeContextInterface => {
-  const ctx = useContext(themeContext);
+interface UseThemeHook {
+  currentTheme: string;
+  toggleTheme: () => void;
+}
 
-  if (ctx === undefined) {
+const useThemeContext = (): UseThemeHook => {
+  const ctx = useContext<ThemeContextProps | undefined>(themeContext);
+
+  if (!ctx) {
     throw new Error('useThemeContext is undefined');
   }
 
-  return ctx;
+  const { currentTheme, setCurrentTheme } = ctx;
+
+  const toggleTheme = useCallback(() => {
+    if (currentTheme === 'dark') setCurrentTheme('light');
+    else if (currentTheme === 'light') setCurrentTheme('dark');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentTheme]);
+
+  return {
+    currentTheme,
+    toggleTheme,
+  };
 };
 
 export default useThemeContext;

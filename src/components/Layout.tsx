@@ -1,9 +1,6 @@
 import React from 'react';
 
-import DirectoryState from '../contextHooks/state/directoryState';
-import HistoryState from '../contextHooks/state/historyState';
-import ThemeState from '../contextHooks/state/themeState';
-import AppMount from './AppMount';
+import AppLayout from './AppLayout';
 import HomeLayout from './HomeLayout';
 
 export interface LayoutProps {
@@ -17,19 +14,23 @@ export default function Layout({
   isAppVersion,
   withTitle,
 }: LayoutProps): JSX.Element {
+  const [userReqWebpage, setUserReqWebpage] = React.useState(false);
+
+  React.useEffect(() => {
+    const site = window.localStorage.getItem('site');
+    if (site === 'website') {
+      setUserReqWebpage(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <React.StrictMode>
-      <DirectoryState>
-        <HistoryState>
-          <ThemeState>
-            {isAppVersion ? (
-              <AppMount />
-            ) : (
-              <HomeLayout withTitle={withTitle}>{children}</HomeLayout>
-            )}
-          </ThemeState>
-        </HistoryState>
-      </DirectoryState>
+      {isAppVersion && !userReqWebpage ? (
+        <AppLayout />
+      ) : (
+        <HomeLayout withTitle={withTitle}>{children}</HomeLayout>
+      )}
     </React.StrictMode>
   );
 }

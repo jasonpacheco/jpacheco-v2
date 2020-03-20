@@ -3,6 +3,8 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface ThemeVariables {
     variables: {
+      transitionSpeed: string;
+      transitionFn: string;
       window: {
         titleBarHeight: string;
         optionsCircleDiameter: string;

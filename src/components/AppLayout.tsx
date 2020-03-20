@@ -2,8 +2,6 @@ import React from 'react';
 
 import Window from './Window/Window';
 
-const AppMount = (): JSX.Element => {
+export default function AppLayout(): JSX.Element {
   return <Window />;
-};
-
-export default AppMount;
+}

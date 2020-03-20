@@ -3,8 +3,12 @@ import styled from 'styled-components';
 export const WindowContainer = styled.div`
   background-color: ${(props): string => props.theme.colors.window.background};
   border: 1px solid ${(props): string => props.theme.colors.window.border};
+  transition-property: background-color, border;
+  transition-duration: ${({ theme: { variables } }): string =>
+    `${variables.transitionSpeed}`};
+  transition-timing-function: ${({ theme: { variables } }): string =>
+    `${variables.transitionFn}`};
   border-radius: 0.4rem;
-  /* font-size: 0.8rem; */
   margin: 1rem auto;
   min-height: 70vh;
   overflow: hidden;
@@ -22,6 +26,11 @@ export const WindowTitleBarContainer = styled.div`
   justify-content: space-between;
   padding: 0.5rem;
   height: ${(props): string => props.theme.variables.window.titleBarHeight};
+  transition-property: background-color, border-bottom;
+  transition-duration: ${({ theme: { variables } }): string =>
+    `${variables.transitionSpeed}`};
+  transition-timing-function: ${({ theme: { variables } }): string =>
+    `${variables.transitionFn}`};
 `;
 
 export const WindowOptionsContainer = styled.div`
@@ -43,6 +52,11 @@ export const WindowOptionCircle = styled.span<WindowOptionCircleProps>`
   margin-right: 0.5rem;
   width: ${(props): string =>
     props.theme.variables.window.optionsCircleDiameter};
+  transition-property: background-color;
+  transition-duration: ${({ theme: { variables } }): string =>
+    `${variables.transitionSpeed}`};
+  transition-timing-function: ${({ theme: { variables } }): string =>
+    `${variables.transitionFn}`};
 `;
 
 export const WindowTitleContainer = styled.div`

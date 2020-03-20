@@ -2,10 +2,20 @@ import styled from 'styled-components';
 
 export const FileColor = styled.span`
   color: ${(props): string => props.theme.colors.window.file};
+  transition-property: color;
+  transition-duration: ${({ theme: { variables } }): string =>
+    `${variables.transitionSpeed}`};
+  transition-timing-function: ${({ theme: { variables } }): string =>
+    `${variables.transitionFn}`};
 `;
 
 export const DirectoryColor = styled.span`
   color: ${(props): string => props.theme.colors.window.directory};
+  transition-property: color;
+  transition-duration: ${({ theme: { variables } }): string =>
+    `${variables.transitionSpeed}`};
+  transition-timing-function: ${({ theme: { variables } }): string =>
+    `${variables.transitionFn}`};
 `;
 
 interface ListContainerProps {

@@ -1,9 +1,7 @@
 import { createContext } from 'react';
 
-import { ThemeContextInterface } from '../interfaces/theme';
+import { ThemeContextProps } from '../interfaces/theme';
 
-const themeContext = createContext<ThemeContextInterface | undefined>(
-  undefined,
-);
+const themeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export default themeContext;

@@ -16,14 +16,29 @@ export const QueryContainer = styled.div`
 
 export const QueryTime = styled.span`
   color: ${(props): string => props.theme.colors.window.time};
+  transition-property: color;
+  transition-duration: ${({ theme: { variables } }): string =>
+    `${variables.transitionSpeed}`};
+  transition-timing-function: ${({ theme: { variables } }): string =>
+    `${variables.transitionFn}`};
 `;
 
 export const QueryDirectory = styled.span`
   color: ${(props): string => props.theme.colors.window.directory};
+  transition-property: color;
+  transition-duration: ${({ theme: { variables } }): string =>
+    `${variables.transitionSpeed}`};
+  transition-timing-function: ${({ theme: { variables } }): string =>
+    `${variables.transitionFn}`};
 `;
 
 export const QueryShellDirective = styled.span`
   color: ${(props): string => props.theme.colors.window.shellDirective};
+  transition-property: color;
+  transition-duration: ${({ theme: { variables } }): string =>
+    `${variables.transitionSpeed}`};
+  transition-timing-function: ${({ theme: { variables } }): string =>
+    `${variables.transitionFn}`};
 `;
 
 type QueryInputProps = {
@@ -45,4 +60,9 @@ export const QueryInput = styled.input.attrs(() => ({
   margin: 0;
   outline: none;
   padding: 0;
+  transition-property: background-color, color;
+  transition-duration: ${({ theme: { variables } }): string =>
+    `${variables.transitionSpeed}`};
+  transition-timing-function: ${({ theme: { variables } }): string =>
+    `${variables.transitionFn}`};
 `;

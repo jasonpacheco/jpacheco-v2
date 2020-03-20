@@ -1,13 +1,4 @@
-export type ThemeContextState = {
-  isDarkTheme: boolean;
+export type ThemeContextProps = {
+  currentTheme: string;
+  setCurrentTheme: (value: string) => void;
 };
-
-interface SwitchThemeAction {
-  type: 'theme/switch';
-}
-
-export type ThemeActions = SwitchThemeAction;
-
-export interface ThemeContextInterface extends ThemeContextState {
-  switchTheme: () => void;
-}

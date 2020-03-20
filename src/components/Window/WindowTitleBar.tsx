@@ -65,16 +65,12 @@ const WindowTitle = ({ withTitle }: WindowTitleProps): JSX.Element => {
   );
 };
 
-const handleChange = (isDarkTheme: boolean, switchTheme: () => void): void => {
-  window.localStorage.setItem('theme', !isDarkTheme ? 'dark' : 'light');
-  switchTheme();
-};
-
 interface WindowTitleBarProps {
   withTitle?: string;
 }
 const WindowTitleBar = ({ withTitle }: WindowTitleBarProps): JSX.Element => {
-  const { isDarkTheme, switchTheme } = useThemeContext();
+  const { currentTheme, toggleTheme } = useThemeContext();
+
   const data = useStaticQuery(graphql`
     query {
       light: file(relativePath: { eq: "sun.png" }) {
@@ -99,13 +95,16 @@ const WindowTitleBar = ({ withTitle }: WindowTitleBarProps): JSX.Element => {
       <WindowTitle withTitle={withTitle || '~'} />
       <WindowTitleBarSpacer>
         <span
-          onClick={(): void => handleChange(isDarkTheme, switchTheme)}
+          onClick={toggleTheme}
           onKeyUp={(): void => {}}
           role="button"
           tabIndex={-1}
         >
           <Img
-            fixed={data[isDarkTheme ? 'light' : 'dark'].childImageSharp.fixed}
+            fixed={
+              data[currentTheme === 'dark' ? 'light' : 'dark'].childImageSharp
+                .fixed
+            }
             alt="light mode"
           />
         </span>

@@ -1,32 +1,31 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 
 interface LightsProps {
-  isDarkTheme: boolean;
-  switchTheme: () => void;
+  currentTheme: string;
+  toggleTheme: () => void;
 }
 
 export default function Lights({
-  isDarkTheme,
-  switchTheme,
+  currentTheme,
+  toggleTheme,
 }: LightsProps): JSX.Element {
-  useLayoutEffect(() => {
-    window.localStorage.setItem('theme', !isDarkTheme ? 'dark' : 'light');
-    switchTheme();
+  useEffect(() => {
+    toggleTheme();
   }, []);
 
-  return !isDarkTheme ? (
-    <p>
-      Dark mode!{' '}
-      <span aria-label="emoji for dark mode" role="img">
-        🌙
-      </span>
-    </p>
-  ) : (
+  return currentTheme === 'dark' ? (
     <p>
       Light mode!{' '}
       <span aria-label="emoji for light mode" role="img">
         ☀️
+      </span>
+    </p>
+  ) : (
+    <p>
+      Dark mode!{' '}
+      <span aria-label="emoji for dark mode" role="img">
+        🌙
       </span>
     </p>
   );

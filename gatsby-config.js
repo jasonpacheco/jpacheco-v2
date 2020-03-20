@@ -35,7 +35,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Fira Code'],
+          families: ['Fira Code', 'Open Sans'],
         },
       },
     },
