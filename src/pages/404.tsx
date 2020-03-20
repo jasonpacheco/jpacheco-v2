@@ -23,11 +23,10 @@ export default function IndexPage(): JSX.Element {
         defaultTitle={data.site.siteMetadata.name}
       >
         <meta name="description" content={data.site.siteMetadata.description} />
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
       </Helmet>
-      <Layout withTitle="~">
+      <Layout withTitle="???">
         <div>
-          <h1>Jason Pacheco</h1>
+          <h1>404: Not Found!</h1>
         </div>
       </Layout>
     </div>

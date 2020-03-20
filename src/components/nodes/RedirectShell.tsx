@@ -1,12 +1,13 @@
 import { navigate } from 'gatsby';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function RedirectShell(): JSX.Element {
-  React.useEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       navigate('/');
     }, 500);
   }, []);
+
   return (
     <div>
       <p>Redirecting...</p>
