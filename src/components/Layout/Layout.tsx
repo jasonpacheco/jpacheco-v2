@@ -1,8 +1,8 @@
 import React from 'react';
 
-import About from './Site/about';
-import { WindowContainer, WindowContent } from './Window/window.styled';
-import WindowTitleBar from './Window/WindowTitleBar';
+import { WindowContainer, WindowContent } from '../Window/window.styled';
+import WindowTitleBar from '../Window/WindowTitleBar';
+import Footer from './Footer';
 
 export interface LayoutProps {
   children: React.ReactNode;
@@ -17,11 +17,9 @@ export default function Layout({
     <React.StrictMode>
       <WindowContainer>
         <WindowTitleBar withTitle={withTitle || 'jpacheco.dev'} />
-        <WindowContent>
-          {children}
-          <About />
-        </WindowContent>
+        <WindowContent>{children}</WindowContent>
       </WindowContainer>
+      <Footer />
     </React.StrictMode>
   );
 }

@@ -76,12 +76,19 @@ export const WindowTitleContainer = styled.div`
   align-self: center;
   flex: 2;
   text-align: center;
-  & > p {
-    margin: 0;
-    & > span > svg {
-      height: ${(props): string => props.theme.variables.window.titleIconSize};
+
+  div {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+
+    span:first-child {
       margin-right: 0.2rem;
-      width: ${(props): string => props.theme.variables.window.titleIconSize};
+      svg {
+        height: ${(props): string =>
+          props.theme.variables.window.titleIconSize};
+        width: ${(props): string => props.theme.variables.window.titleIconSize};
+      }
     }
   }
 `;

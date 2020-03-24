@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import Projects from '../components/Site/projects/projects';
 
 export default function IndexPage(): JSX.Element {
@@ -24,11 +24,17 @@ export default function IndexPage(): JSX.Element {
         defaultTitle={data.site.siteMetadata.name}
       >
         <meta name="description" content={data.site.siteMetadata.description} />
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
       </Helmet>
-      <Layout withTitle="jpacheco.dev">
+      <Layout withTitle="~">
         <div>
           <h1>Jason Pacheco</h1>
+        </div>
+        <div>
+          <p>
+            I&apos;m a frontend developer specializing in React and JavaScript.
+            In the past, I&apos;ve been an aficionado of MATLAB and a former
+            U.S. Marine.
+          </p>
         </div>
         <Projects />
       </Layout>

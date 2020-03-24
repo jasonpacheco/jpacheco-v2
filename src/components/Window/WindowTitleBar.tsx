@@ -57,10 +57,10 @@ interface WindowTitleProps {
 const WindowTitle = ({ withTitle }: WindowTitleProps): JSX.Element => {
   return (
     <WindowTitleContainer>
-      <p>
+      <div>
         <Icon type={getType(withTitle)} />
-        {withTitle}
-      </p>
+        <span>{withTitle}</span>
+      </div>
     </WindowTitleContainer>
   );
 };
