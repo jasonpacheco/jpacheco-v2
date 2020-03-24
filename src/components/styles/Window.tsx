@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
-type WindowContainerProps = {
+type IsShellProp = {
   isShell?: boolean;
 };
 
-export const WindowContainer = styled.div<WindowContainerProps>`
+export const WindowContainer = styled.div<IsShellProp>`
   ${({ isShell }): string =>
-    isShell ? 'font-family: "Fira Code", monospace' : ''};
+    isShell
+      ? `
+      font-family: "Fira Code", monospace;
+      min-height: 70vh;
+      overflow: hidden;
+    `
+      : ''};
   background-color: ${(props): string => props.theme.colors.window.background};
   border: 1px solid ${(props): string => props.theme.colors.window.border};
   transition-property: background-color, border;
@@ -16,9 +22,10 @@ export const WindowContainer = styled.div<WindowContainerProps>`
     `${variables.transitionFn}`};
   border-radius: 0.4rem;
   margin: 1rem auto;
-  min-height: 70vh;
-  overflow: hidden;
   width: 95%;
+  @media (min-width: 768px) {
+    width: 729px;
+  }
 `;
 
 export const WindowTitleBarContainer = styled.div`
@@ -88,8 +95,13 @@ export const WindowTitleBarSpacer = styled.div`
   }
 `;
 
-export const WindowContent = styled.div`
-  max-height: 70vh;
-  padding: 0.5rem;
-  overflow: scroll;
+export const WindowContent = styled.div<IsShellProp>`
+  padding: 0.5rem 1rem;
+  ${({ isShell }): string =>
+    isShell
+      ? `
+      max-height: 70vh;
+      overflow: scroll;
+    `
+      : ''};
 `;

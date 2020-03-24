@@ -15,7 +15,7 @@ import {
 } from '../styles/Window';
 
 const getType = (path: string): string => {
-  if (path !== '~') {
+  if (path !== '~' && path !== 'jpacheco.dev') {
     return 'directory';
   }
 

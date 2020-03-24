@@ -12,7 +12,11 @@ export const InnerWrapper = styled(OuterWrapper)`
   align-items: center;
 `;
 
-export const GitColor = styled.span`
+type GitColorProps = {
+  size?: string;
+};
+
+export const GitColor = styled.span<GitColorProps>`
   & > svg {
     fill: ${(props): string => props.theme.colors.site.text};
     transition-property: fill;
@@ -20,5 +24,8 @@ export const GitColor = styled.span`
       `${variables.transitionSpeed}`};
     transition-timing-function: ${({ theme: { variables } }): string =>
       `${variables.transitionFn}`};
+
+    ${({ size }): string =>
+      size ? `width: ${size}em; height: ${size}em;` : ''};
   }
 `;

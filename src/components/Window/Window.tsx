@@ -30,7 +30,7 @@ export default function Window({ isShell }: WindowProps): JSX.Element {
   return (
     <WindowContainer isShell={isShell}>
       <WindowTitleBar withTitle={currentDirectory} />
-      <WindowContent>
+      <WindowContent isShell={isShell}>
         <div>
           {nodeList.map(({ nodeID, nodeComponent }) => (
             <div key={nodeID}>{nodeComponent}</div>

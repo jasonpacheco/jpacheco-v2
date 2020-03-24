@@ -16,7 +16,14 @@ const ThemeState = ({ children }: ThemeStateProps): JSX.Element => {
   const currentStyledTheme = currentTheme === 'dark' ? themeDark : themeLight;
 
   useEffect(() => {
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: light)').matches
+    ) {
+      setCurrentTheme('light');
+    }
     setHasMounted(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return hasMounted ? (
@@ -26,12 +33,13 @@ const ThemeState = ({ children }: ThemeStateProps): JSX.Element => {
       </StyledThemeProvider>
     </ThemeContext.Provider>
   ) : (
-    <ThemeContext.Provider value={{ currentTheme, setCurrentTheme }}>
-      <div />
-      <StyledThemeProvider theme={currentStyledTheme}>
-        {children}
-      </StyledThemeProvider>
-    </ThemeContext.Provider>
+    // <ThemeContext.Provider value={{ currentTheme, setCurrentTheme }}>
+    //   <div />
+    //   <StyledThemeProvider theme={currentStyledTheme}>
+    //     {children}
+    //   </StyledThemeProvider>
+    // </ThemeContext.Provider>
+    <div />
   );
 };
 
