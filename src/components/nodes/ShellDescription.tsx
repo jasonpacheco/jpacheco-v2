@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-import { StyledInnerLink } from '../styles/shared.styled';
+import { StyledInnerLink } from '../shared.styled';
 
 const ShellDescription = (): JSX.Element => {
   return (

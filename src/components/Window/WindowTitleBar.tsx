@@ -12,7 +12,7 @@ import {
   WindowTitleBarContainer,
   WindowTitleBarSpacer,
   WindowTitleContainer,
-} from '../styles/Window';
+} from './window.styled';
 
 const getType = (path: string): string => {
   if (path !== '~' && path !== 'jpacheco.dev') {

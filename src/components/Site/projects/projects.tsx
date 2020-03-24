@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import GithubIcon from '../../../assets/github.svg';
-import { GitColor } from '../styles/contact';
+import { GitColor } from '../contact.styled';
 
 export const ProjectContainer = styled.div`
   border: 1px solid black;

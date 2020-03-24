@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledLink } from '../styles/shared.styled';
+import { StyledLink } from '../shared.styled';
 
 export default function Version(): JSX.Element {
   return (

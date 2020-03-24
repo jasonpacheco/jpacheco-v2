@@ -4,13 +4,6 @@ import useDirectoryContext from '../../contextHooks/useDirectoryContext';
 import useHistoryContext from '../../contextHooks/useHistoryContext';
 import validateInput from '../../utils/validateInput';
 import ResultNode from '../nodes/ResultNode';
-import {
-  QueryContainer,
-  QueryDirectory,
-  QueryInput,
-  QueryShellDirective,
-  QueryTime,
-} from '../styles/Query';
 import PreviousQuery from './PreviousQuery';
 import {
   DISPATCH_DELAY_MS,
@@ -21,6 +14,13 @@ import {
   QueryProps,
   QueryState,
 } from './query.interface';
+import {
+  QueryContainer,
+  QueryDirectory,
+  QueryInput,
+  QueryShellDirective,
+  QueryTime,
+} from './query.styled';
 
 const handleChange = (
   e: React.ChangeEvent<HTMLInputElement>,

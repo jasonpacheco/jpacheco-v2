@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { ManualTitle, SectionContents, StyledCommand } from '../styles/ManPage';
+import { ManualTitle, SectionContents, StyledCommand } from './styled';
 
 interface ManPageProps {
   command: string;

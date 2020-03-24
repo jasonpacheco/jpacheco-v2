@@ -2,8 +2,8 @@ import React from 'react';
 
 import GithubIcon from '../../assets/github.svg';
 import LinkedInIcon from '../../assets/linkedin.svg';
-import { StyledLink } from '../styles/shared.styled';
-import { GitColor, InnerWrapper, OuterWrapper } from './styles/contact';
+import { StyledLink } from '../shared.styled';
+import { GitColor, InnerWrapper, OuterWrapper } from './contact.styled';
 
 export default function Contact(): JSX.Element {
   return (

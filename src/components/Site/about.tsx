@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 
-import { AboutContainer, ImageContainer } from './styles/about';
+import { AboutContainer, ImageContainer } from './about.styled';
 
 export default function About(): JSX.Element {
   const data = useStaticQuery(graphql`

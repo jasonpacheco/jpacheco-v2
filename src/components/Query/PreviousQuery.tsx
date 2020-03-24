@@ -1,12 +1,12 @@
 import React from 'react';
 
+import { PreviousQueryProps } from './query.interface';
 import {
   QueryContainer,
   QueryDirectory,
   QueryShellDirective,
   QueryTime,
-} from '../styles/Query';
-import { PreviousQueryProps } from './query.interface';
+} from './query.styled';
 
 export default function PreviousQuery({
   query,

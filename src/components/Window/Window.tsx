@@ -5,7 +5,7 @@ import useHistoryContext from '../../contextHooks/useHistoryContext';
 import getQueryTime from '../../utils/getQueryTime';
 import useLockBodyScroll from '../../utils/useLockBodyScroll';
 import Query from '../Query/Query';
-import { WindowContainer, WindowContent } from '../styles/Window';
+import { WindowContainer, WindowContent } from './window.styled';
 import WindowTitleBar from './WindowTitleBar';
 
 type WindowProps = {

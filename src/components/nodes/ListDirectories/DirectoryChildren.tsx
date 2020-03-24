@@ -5,7 +5,7 @@ import {
   FileColor,
   ListContainer,
   ListElement,
-} from '../styles/DirectoryChildren';
+} from './styled';
 
 interface DirectoryChildrenProps {
   parentDirectory: string;
