@@ -2,8 +2,8 @@ import React from 'react';
 
 import GithubIcon from '../../assets/github.svg';
 import LinkedInIcon from '../../assets/linkedin.svg';
-import { StyledLink } from '../shared.styled';
-import { GitColor, InnerWrapper, OuterWrapper } from './contact.styled';
+import { IconWrapper, StyledLink } from '../shared.styled';
+import { InnerWrapper, OuterWrapper } from './contact.styled';
 
 export default function Contact(): JSX.Element {
   return (
@@ -26,9 +26,9 @@ export default function Contact(): JSX.Element {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <GitColor>
+              <IconWrapper>
                 <GithubIcon />
-              </GitColor>
+              </IconWrapper>
             </a>
           </p>
         </InnerWrapper>

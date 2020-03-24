@@ -33,3 +33,29 @@ export const StyledInnerLink = styled.span`
     }
   }
 `;
+
+type IconWrapper = {
+  size?: string;
+};
+
+export const IconWrapper = styled.span<IconWrapper>`
+  & > svg {
+    fill: ${(props): string => props.theme.colors.site.text};
+    transition-property: fill;
+    transition-duration: ${({ theme: { variables } }): string =>
+      `${variables.transitionSpeed}`};
+    transition-timing-function: ${({ theme: { variables } }): string =>
+      `${variables.transitionFn}`};
+
+    ${({ size }): string =>
+      size ? `width: ${size}em; height: ${size}em;` : ''};
+  }
+`;
+
+type ParagraphProps = {
+  margin?: number;
+};
+
+export const Paragraph = styled.p<ParagraphProps>`
+  margin: ${({ margin }): string => (margin ? `${margin}em 0` : '0')};
+`;
