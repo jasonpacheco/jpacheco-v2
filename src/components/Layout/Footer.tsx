@@ -11,7 +11,7 @@ const FooterWrapper = styled.div`
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem auto;
   width: 95%;
   @media (min-width: 768px) {
     width: 729px;
