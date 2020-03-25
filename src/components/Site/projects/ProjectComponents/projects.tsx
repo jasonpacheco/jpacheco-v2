@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledLink } from '../../shared.styled';
+import { StyledLink } from '../../../shared.styled';
 import Project from './Project';
 import { FlexWrapper, ProjectContainer } from './projects.styled';
 

@@ -2,10 +2,10 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import Layout from '../components/Layout/Layout';
-import Projects from '../components/Site/projects/ProjectComponents/projects';
+import Layout from '../../components/Layout/Layout';
+import Shell from '../../components/Site/projects/shell';
 
-export default function IndexPage(): JSX.Element {
+export default function FauxnitamaPage(): JSX.Element {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -25,18 +25,8 @@ export default function IndexPage(): JSX.Element {
       >
         <meta name="description" content={data.site.siteMetadata.description} />
       </Helmet>
-      <Layout withTitle="~">
-        <div>
-          <h1>Jason Pacheco</h1>
-        </div>
-        <div>
-          <p>
-            I&apos;m a frontend developer specializing in React and JavaScript.
-            In the past, I&apos;ve been an aficionado of MATLAB and a former
-            U.S. Marine.
-          </p>
-        </div>
-        <Projects />
+      <Layout withTitle="~/projects/shell">
+        <Shell />
       </Layout>
     </div>
   );

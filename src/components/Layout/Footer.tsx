@@ -12,6 +12,9 @@ const FooterWrapper = styled.div`
   align-content: center;
   align-items: center;
   margin: 0 auto 1.5rem auto;
+  p {
+    padding: 0 1rem;
+  }
   width: 95%;
   @media (min-width: 768px) {
     width: 729px;

@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function Onitama(): JSX.Element {
+export default function Fauxnitama(): JSX.Element {
   return <div>onitama</div>;
 }

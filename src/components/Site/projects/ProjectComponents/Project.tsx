@@ -1,13 +1,13 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-import GithubIcon from '../../../assets/github.svg';
+import GithubIcon from '../../../../assets/github.svg';
 import {
   IconWrapper,
   Paragraph,
   StyledInnerLink,
   StyledLink,
-} from '../../shared.styled';
+} from '../../../shared.styled';
 import { FlexWrapper, ProjectContainer } from './projects.styled';
 
 type IconLinkProps = {
