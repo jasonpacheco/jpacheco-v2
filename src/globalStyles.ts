@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     background-color: ${(props): string => props.theme.colors.site.background};
     color: ${(props): string => props.theme.colors.site.text};
-    font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Open Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
     font-size: 0.9rem;
     @media (min-width: 768px) {
       font-size: 1.1rem;
@@ -25,7 +25,10 @@ const GlobalStyles = createGlobalStyle`
 
   }
 
-  main{display:block}
+  main {
+    display: block;
+  }
+
   h1, h2, h3, h4, h5 {
     color: ${(props): string => props.theme.colors.site.header};
   }

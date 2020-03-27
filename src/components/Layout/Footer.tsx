@@ -2,9 +2,15 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
+import EmailIcon from '../../assets/email.svg';
 import GitHubIcon from '../../assets/github.svg';
 import LinkedInIcon from '../../assets/linkedin-alt.svg';
-import { IconWrapper, Paragraph, StyledInnerLink } from '../shared.styled';
+import {
+  IconWrapper,
+  Paragraph,
+  StyledInnerLink,
+  StyledLink,
+} from '../shared.styled';
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -20,6 +26,11 @@ const FooterWrapper = styled.div`
     width: 729px;
   }
 `;
+
+export const IconLinksWrapper = styled.span`
+  display: flex;
+`;
+
 export default function Footer(): JSX.Element {
   return (
     <FooterWrapper>
@@ -32,7 +43,18 @@ export default function Footer(): JSX.Element {
           <Link to="/about">About</Link>
         </StyledInnerLink>
       </Paragraph>
+
       <Paragraph>
+        <span style={{ position: 'relative', top: '-0.4rem' }}>
+          <StyledLink href="mailto:jason@jpacheco.dev">
+            jason@jpacheco.dev
+          </StyledLink>
+        </span>
+        <span style={{ margin: '0 0.3rem' }} />
+        <IconWrapper size="1.8">
+          <EmailIcon />
+        </IconWrapper>
+        <span style={{ margin: '0 0.1rem' }} />
         <a
           href="https://github.com/jasonpacheco"
           target="_blank"

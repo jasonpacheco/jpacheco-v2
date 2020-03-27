@@ -28,7 +28,6 @@
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-transformer-sharp": "^2.3.19",
     "react": "^16.13.0",
-    "react-contenteditable": "^3.3.3",
     "react-dom": "^16.13.0",
     "react-helmet": "^6.0.0-beta.2",
     "styled-components": "^5.0.1",
