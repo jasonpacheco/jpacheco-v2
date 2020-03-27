@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
   html {
-    line-height: 1.15;
+    line-height: 1.2;
     -webkit-text-size-adjust: 100%;
 
   }
@@ -12,8 +12,11 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     background-color: ${(props): string => props.theme.colors.site.background};
     color: ${(props): string => props.theme.colors.site.text};
-    font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    font-size: 0.8rem;
+    font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Open Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: 0.9rem;
+    @media (min-width: 768px) {
+      font-size: 1.1rem;
+      }
     transition-property: background-color, color;
     transition-duration: ${({ theme: { variables } }): string =>
       `${variables.transitionSpeed}`};
@@ -23,7 +26,15 @@ const GlobalStyles = createGlobalStyle`
   }
 
   main{display:block}
-  h1{font-size:2em;margin:.67em 0}
+  h1, h2, h3, h4, h5 {
+    color: ${(props): string => props.theme.colors.site.header};
+  }
+  h1 {
+    color: ${(props): string => props.theme.colors.site.header};
+    font-size:2em;
+    margin:.67em 0;
+  }
+
   hr{box-sizing:content-box;height:0;overflow:visible}
   pre{font-family:monospace,monospace;font-size:1em}
 

@@ -1,13 +1,9 @@
-import { Link } from 'gatsby';
 import React from 'react';
 
 import GithubIcon from '../../../../assets/github.svg';
-import {
-  IconWrapper,
-  Paragraph,
-  StyledInnerLink,
-  StyledLink,
-} from '../../../shared.styled';
+import { IconWrapper, Paragraph } from '../../../shared.styled';
+import Emoji from '../../shared/Emoji';
+import SiteLink from '../../shared/SiteLink';
 import { FlexWrapper, ProjectContainer } from './projects.styled';
 
 type IconLinkProps = {
@@ -23,18 +19,14 @@ const IconLink = ({
 }: IconLinkProps): JSX.Element => (
   <Paragraph margin={0.5} style={{ display: 'flex', alignItems: 'center' }}>
     <span>
-      <StyledLink
-        href={`${demoLink}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Demo
-      </StyledLink>
+      <SiteLink
+        title="Demo"
+        url={demoLink}
+        isGatsbyLink={demoLink.startsWith('/')}
+      />
     </span>
     <span style={{ margin: '0 0.2rem' }} />
-    <StyledInnerLink>
-      <Link to={projectPage}>Project Page</Link>
-    </StyledInnerLink>
+    <SiteLink title="Project Page" url={projectPage} isGatsbyLink />
     <span style={{ margin: '0 0.2rem' }} />
     <span>
       <a
@@ -82,9 +74,7 @@ export default function Project({
           />
         </div>
         <div>
-          <span aria-label={`emoji symbol for project ${name}`} role="img">
-            {emoji}
-          </span>
+          <Emoji emoji={emoji} label={`emoji symbol for project ${name}`} />
         </div>
       </FlexWrapper>
     </ProjectContainer>

@@ -19,6 +19,7 @@ declare module 'styled-components' {
         background: string;
         code: string;
         codeBackground: string;
+        header: string;
         link: string;
         linkHover: string;
         text: string;
@@ -37,7 +38,6 @@ declare module 'styled-components' {
           maximize: string;
         };
         shellDirective: string;
-        result: string;
         text: string;
         time: string;
         titleBarPrimary: string;

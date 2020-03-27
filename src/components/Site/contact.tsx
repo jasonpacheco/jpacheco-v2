@@ -2,8 +2,9 @@ import React from 'react';
 
 import GithubIcon from '../../assets/github.svg';
 import LinkedInIcon from '../../assets/linkedin.svg';
-import { IconWrapper, StyledLink } from '../shared.styled';
+import { IconWrapper } from '../shared.styled';
 import { InnerWrapper, OuterWrapper } from './contact.styled';
+import SiteLink from './shared/SiteLink';
 
 export default function Contact(): JSX.Element {
   return (
@@ -12,13 +13,7 @@ export default function Contact(): JSX.Element {
       <OuterWrapper>
         <InnerWrapper>
           <p>
-            <StyledLink
-              href="https://github.com/jasonpacheco"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Github
-            </StyledLink>
+            <SiteLink title="Github" url="https://github.com/jasonpacheco" />
           </p>{' '}
           <p>
             <a
@@ -34,13 +29,10 @@ export default function Contact(): JSX.Element {
         </InnerWrapper>
         <InnerWrapper>
           <p>
-            <StyledLink
-              href="https://www.linkedin.com/in/jason-pacheco/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </StyledLink>
+            <SiteLink
+              title="LinkedIn"
+              url="https://www.linkedin.com/in/jason-pacheco/"
+            />
           </p>{' '}
           <p>
             <a

@@ -59,7 +59,7 @@ const WindowTitle = ({ withTitle }: WindowTitleProps): JSX.Element => {
     <WindowTitleContainer>
       <div>
         <Icon type={getType(withTitle)} />
-        <span>{withTitle}</span>
+        <span> &mdash; {withTitle}</span>
       </div>
     </WindowTitleContainer>
   );

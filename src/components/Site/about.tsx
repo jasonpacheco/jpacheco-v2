@@ -27,7 +27,7 @@ export default function About(): JSX.Element {
         />
       </ImageContainer>
       <div>
-        <h3>About the developer:</h3>
+        <h3>About the developer</h3>
         <p>
           I&apos;m Jason, a self-taught frontend developer with an unusual
           background in electrical engineering and the military. My goal as a

@@ -36,9 +36,10 @@ export const WindowTitleBarContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   font-family: -apple-system, Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  height: ${(props): string => props.theme.variables.window.titleBarHeight};
   justify-content: space-between;
   padding: 0.5rem;
-  height: ${(props): string => props.theme.variables.window.titleBarHeight};
   transition-property: background-color, border-bottom;
   transition-duration: ${({ theme: { variables } }): string =>
     `${variables.transitionSpeed}`};
