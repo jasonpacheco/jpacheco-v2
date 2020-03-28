@@ -7,7 +7,7 @@ import SiteLink from '../shared/SiteLink';
 export default function Fauxnitama(): JSX.Element {
   return (
     <div>
-      <h1>Fauxnitama:</h1>
+      <h1>Fauxnitama</h1>
       <div>
         <Paragraph
           margin={0.5}
@@ -86,6 +86,7 @@ export default function Fauxnitama(): JSX.Element {
       <div>
         <ul>
           <li>Rewrite the game using Canvas API and vanilla JS</li>
+          <li>Optimize!</li>
           <li>Mobile-first experience</li>
           <li>Smoother, improved UI with better animations and sounds</li>
           <li>Networking capabilities</li>
@@ -96,30 +97,29 @@ export default function Fauxnitama(): JSX.Element {
         <p>
           My game development experience is limited, very limited. I have
           created clones of Breakout and Tetris in Java, Snake in vanilla JS,
-          and that&apos;s about it. I like React so it seemed like a novel idea
-          to build Onitama with React. In retrospect, using React to make a game
-          is like using a butcher&apos;s knife to chop down a tree &mdash; it
-          will get the job done, but it&apos;s not the appropriate tool for the
-          job.
+          and that&apos;s about it. I love React, and I wanted to build Onitama
+          as a frontend web app using styled-components, Hooks, and Context. In
+          retrospect, using a frontend library to develop a game is like using a
+          butter knife to chop down a tree &mdash; it will get the job
+          (questionably) done, but it&apos;s definitely not the appropriate tool
+          for the job.
         </p>
         <p>
-          It was also my first major project using TypeScript. I did become a
-          fan of TS by the end of it, but TS is too much of a bog on development
-          speed. Intellisense makes developing apps in TypeScript worth the
-          laborious effort to get a TS-enabled app up-and-running. I like going
-          about the things the hard way so I committed to strict mode, which
-          slowed me down a good bit as well.
+          This was also my first extensive project using TypeScript. I am
+          definitely on TS hypetrain now, but I&apos;ll also be the first to
+          admit that getting a TS-enabled app up-and-running is painstaking.
         </p>
         <p>
-          Foregoing the Canvas API to program the game in React made this
+          Foregoing the Canvas API to develop the game in React made this
           project challenging. In my head, I felt it would be easier to manage
           individual components and board state as React components and Context
-          state than rely on a traditional MVC pattern in plain JavaScript.
-          While this decision made certain aspects a breeze, it also came back
-          to haunt me as the project complexity grew.
+          state than rely on a traditional MVC pattern and sync everything in a
+          game loop with plain JavaScript. While this decision to rely on pure
+          React made certain aspects a breeze, it also came back to haunt me as
+          the project complexity grew.
         </p>
         <p>
-          My first big mistake in using Context was keeping all my state in one,
+          One big no-no from using Context was keeping all my state in one,
           bloated game context. This was before I found out that Dan Abramov
           advises splitting state into{' '}
           <SiteLink

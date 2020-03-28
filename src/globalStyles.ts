@@ -1,19 +1,20 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
   html {
-    line-height: 1.2;
-    -webkit-text-size-adjust: 100%;
-
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
   }
 
   body {
     margin: 0;
     background-color: ${(props): string => props.theme.colors.site.background};
     color: ${(props): string => props.theme.colors.site.text};
-    font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-family: 'Muli';
+
     font-size: 0.9rem;
+    font-weight: 400;
     @media (min-width: 768px) {
       font-size: 1.1rem;
       }
@@ -22,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
       `${variables.transitionSpeed}`};
     transition-timing-function: ${({ theme: { variables } }): string =>
       `${variables.transitionFn}`};
-
+      width: 100%;
   }
 
   main {
@@ -32,9 +33,9 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5 {
     color: ${(props): string => props.theme.colors.site.header};
   }
+
   h1 {
-    color: ${(props): string => props.theme.colors.site.header};
-    font-size:2em;
+    font-weight: 800;
     margin:.67em 0;
   }
 
@@ -45,18 +46,18 @@ const GlobalStyles = createGlobalStyle`
   abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
   b,strong{font-weight:bolder}
 
-code,kbd,samp {
-  background-color: ${(props): string =>
-    props.theme.colors.site.codeBackground};
-  color: ${(props): string => props.theme.colors.site.code};
-  transition-property: background-color, color;
-  transition-duration: ${({ theme: { variables } }): string =>
-    `${variables.transitionSpeed}`};
-  transition-timing-function: ${({ theme: { variables } }): string =>
-    `${variables.transitionFn}`};
-  font-family:monospace,monospace;
-  font-size:1em;
-}
+  code,kbd,samp {
+    background-color: ${(props): string =>
+      props.theme.colors.site.codeBackground};
+    color: ${(props): string => props.theme.colors.site.code};
+    transition-property: background-color, color;
+    transition-duration: ${({ theme: { variables } }): string =>
+      `${variables.transitionSpeed}`};
+    transition-timing-function: ${({ theme: { variables } }): string =>
+      `${variables.transitionFn}`};
+    font-family: monospace;
+    font-size: 1.1rem;
+  }
 
   small{font-size:80%}
   sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}

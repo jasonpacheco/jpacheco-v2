@@ -26,7 +26,7 @@ const IconLink = ({
       />
     </span>
     <span style={{ margin: '0 0.2rem' }} />
-    <SiteLink title="Project Page" url={projectPage} isGatsbyLink />
+    <SiteLink title="Details" url={projectPage} isGatsbyLink />
     <span style={{ margin: '0 0.2rem' }} />
     <span>
       <a

@@ -18,6 +18,12 @@ const FooterWrapper = styled.div`
   align-content: center;
   align-items: center;
   margin: 0 auto 1.5rem auto;
+  @media (max-width: 510px) {
+    flex-wrap: wrap;
+    p:nth-child(2) {
+      order: 3;
+    }
+  }
   p {
     padding: 0 1rem;
   }
@@ -25,10 +31,6 @@ const FooterWrapper = styled.div`
   @media (min-width: 768px) {
     width: 729px;
   }
-`;
-
-export const IconLinksWrapper = styled.span`
-  display: flex;
 `;
 
 export default function Footer(): JSX.Element {
@@ -43,17 +45,17 @@ export default function Footer(): JSX.Element {
           <Link to="/about">About</Link>
         </StyledInnerLink>
       </Paragraph>
-
+      <Paragraph style={{ fontSize: '0.8rem' }}>
+        &quot;We must dare to invent the future.&quot;
+        <br />
+        <i>Thomas Sankara</i>
+      </Paragraph>
       <Paragraph>
-        <span style={{ position: 'relative', top: '-0.4rem' }}>
-          <StyledLink href="mailto:jason@jpacheco.dev">
-            jason@jpacheco.dev
-          </StyledLink>
-        </span>
-        <span style={{ margin: '0 0.3rem' }} />
-        <IconWrapper size="1.8">
-          <EmailIcon />
-        </IconWrapper>
+        <StyledLink href="mailto:jason@jpacheco.dev">
+          <IconWrapper size="1.8">
+            <EmailIcon />
+          </IconWrapper>
+        </StyledLink>
         <span style={{ margin: '0 0.1rem' }} />
         <a
           href="https://github.com/jasonpacheco"

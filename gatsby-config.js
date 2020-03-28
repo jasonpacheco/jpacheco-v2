@@ -35,7 +35,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Fira Code', 'Muli', 'Open Sans'],
+          families: ['Fira Code', 'Muli:300,400,600,800', 'Varela Round'],
         },
       },
     },

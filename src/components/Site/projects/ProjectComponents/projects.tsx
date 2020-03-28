@@ -23,7 +23,7 @@ export default function Projects(): JSX.Element {
         name="Fauxnitama"
         description="A React implementation of Onitama. Features keyboard controls,
         chess-like notation derived from algebraic and Forsyth-Edwards
-        notation, and an AI developed using the negamax algorithm."
+        notation, and an AI developed using negamax."
         links={{
           demoLink: 'https://fauxnitama.jpacheco.dev/',
           repoName: 'fauxnitama',
@@ -33,11 +33,10 @@ export default function Projects(): JSX.Element {
       />
       <Project
         name="Lowcountry Lawn Enforcement"
-        description="A website I was commissioned for a friend's small business
-        but was cancelled mid-development."
+        description="A concept page for a friend's small business."
         links={{
-          demoLink: '/',
-          repoName: '',
+          demoLink: 'https://lawnenforcement.jpacheco.dev',
+          repoName: 'lawnenforcement',
           projectPage: '/projects/lle',
         }}
         emoji="🚨"
@@ -45,19 +44,18 @@ export default function Projects(): JSX.Element {
       <ProjectContainer>
         <FlexWrapper>
           <div>
-            <h4>EE168 Final Project</h4>
+            <h4>Hennessey&apos;d</h4>
             <p>
-              My teammates and I created a four minute-long, Stanford-themed,
-              animated episode of SpongeBob. The kicker? It was created in
-              MATLAB.
+              Final project for an image processing course. A four minute-long,
+              crudely-animated episode of SpongeBob... created in MATLAB.
             </p>
             <p>
               <SiteLink
-                title="External Page"
+                title="Course Page"
                 url="https://web.stanford.edu/class/ee168/projects.shtml"
               />
               <span style={{ margin: '0 0.2rem' }} />
-              <SiteLink title="Video Link" url="https://streamable.com/n4ped" />
+              <SiteLink title="Streamable" url="https://streamable.com/n4ped" />
             </p>
           </div>
           <div>

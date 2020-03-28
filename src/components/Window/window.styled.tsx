@@ -11,6 +11,8 @@ export const WindowContainer = styled.div<IsShellProp>`
       font-family: "Fira Code", monospace;
       min-height: 70vh;
       overflow: hidden;
+      line-height: 1.15;
+      font-size: 0.9rem;
     `
       : ''};
   background-color: ${(props): string => props.theme.colors.window.background};
@@ -48,8 +50,8 @@ export const WindowTitleBarContainer = styled.div`
 `;
 
 export const WindowOptionsContainer = styled.div`
-  align-self: center;
   flex: 1;
+  margin-top: -0.1rem;
 `;
 
 interface WindowOptionCircleProps {
@@ -75,21 +77,14 @@ export const WindowOptionCircle = styled.span<WindowOptionCircleProps>`
 
 export const WindowTitleContainer = styled.div`
   align-self: center;
-  flex: 2;
-  text-align: center;
-
-  div {
+  display: flex;
+  span:first-child {
+    margin-right: 0.2rem;
+    padding-top: 0.1rem;
     align-self: center;
-    display: flex;
-    justify-content: center;
-
-    span:first-child {
-      margin-right: 0.2rem;
-      svg {
-        height: ${(props): string =>
-          props.theme.variables.window.titleIconSize};
-        width: ${(props): string => props.theme.variables.window.titleIconSize};
-      }
+    svg {
+      height: ${(props): string => props.theme.variables.window.titleIconSize};
+      width: ${(props): string => props.theme.variables.window.titleIconSize};
     }
   }
 `;

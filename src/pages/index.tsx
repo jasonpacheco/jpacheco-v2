@@ -31,9 +31,8 @@ export default function IndexPage(): JSX.Element {
         </div>
         <div>
           <p>
-            I&apos;m a frontend developer specializing in React and JavaScript.
-            In the past, I&apos;ve been an aficionado of MATLAB and a former
-            U.S. Marine.
+            I&apos;m a React developer, which means I like debugging more than I
+            like creating.
           </p>
         </div>
         <Projects />

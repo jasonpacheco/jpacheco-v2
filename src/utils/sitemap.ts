@@ -28,8 +28,20 @@ const sitemap: DirectoryNode = {
       type: 'directory',
       children: [
         {
-          fullPath: '~/projects/onitama.tsx',
-          relativePath: 'onitama.tsx',
+          fullPath: '~/projects/fauxnitama.tsx',
+          relativePath: 'fauxnitama.tsx',
+          type: 'node',
+          children: [],
+        },
+        {
+          fullPath: '~/projects/shell.tsx',
+          relativePath: 'shell.tsx',
+          type: 'node',
+          children: [],
+        },
+        {
+          fullPath: '~/projects/lle.tsx',
+          relativePath: 'lle.tsx',
           type: 'node',
           children: [],
         },
